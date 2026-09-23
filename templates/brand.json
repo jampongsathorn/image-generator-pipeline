@@ -1,0 +1,56 @@
+{
+  "_schema": "igp-brand/v2",
+  "_notes": [
+    "The STYLE LOCK. Locked values are added to every prompt - this is what makes a batch of 10 images look like one shoot.",
+    "'look'      -> applies to EVERY use case (colour grade, materials, mood).",
+    "'studio'    -> applies only to the use cases listed in 'studio_use_cases' (clean studio setups).",
+    "               Lifestyle / concept / historical shots keep the photographic direction their recipe defines,",
+    "               so a street scene never inherits a seamless studio backdrop.",
+    "Resolution order per prompt line: request-sheet column -> brand lock -> recipe default.",
+    "Empty strings are skipped, so delete whatever you do not want.",
+    "Keep clauses short. Consistency comes from: a locked look + studio setup + the same reference image",
+    "+ identical framing words + generating the whole batch in one round."
+  ],
+  "brand_name": "ACME Home & Living",
+  "campaign": "2026 Catalogue - Spring/Summer",
+  "look": {
+    "palette": "warm neutral base with charcoal #26262B, sand #D9C7A7 and olive #6E7A5A accents",
+    "materials": "real material micro-texture: grain, weave, brushed metal, matte ceramic",
+    "mood": "calm, premium, trustworthy"
+  },
+  "studio_use_cases": [
+    "product-mockup",
+    "background-extraction",
+    "sketch-to-render"
+  ],
+  "studio": {
+    "scene": "seamless light neutral studio background (#F4F2EE to #FFFFFF), identical across the batch",
+    "style": "premium commercial catalogue photography, crisp and clean",
+    "lighting": "large softbox key light slightly camera-left, soft fill, gentle contact shadow",
+    "framing": "centred product, camera at product mid-height, mild three-quarter angle, product fills about 75% of the frame"
+  },
+  "global_constraints": [
+    "photographic realism with one consistent light direction",
+    "product colour and proportions true to the reference image"
+  ],
+  "global_avoid": [
+    "watermark or caption bar",
+    "illegible or invented text on packaging",
+    "unrequested extra props or hands",
+    "HDR look or heavy vignette",
+    "duplicated or warped geometry"
+  ],
+  "output_defaults": {
+    "format": "jpeg",
+    "quality": 92,
+    "delivery_px": 2048,
+    "aspect": "1:1",
+    "png_use_cases": [
+      "logo-brand",
+      "infographic-diagram",
+      "ui-mockup",
+      "text-localization",
+      "background-extraction"
+    ]
+  }
+}

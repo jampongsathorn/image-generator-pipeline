@@ -1,0 +1,394 @@
+{
+  "_schema": "igp-recipes/v1",
+  "_notes": [
+    "Every key is a use-case slug (same slugs as openai/skills imagegen, so prompts stay portable).",
+    "template  = ordered labelled lines handed to the image generator.",
+    "defaults  = fallbacks used only when neither the request sheet nor templates/brand.json sets that line.",
+    "Resolution order per line: request-sheet column -> brand lock (look/studio) -> recipe default.",
+    "Placeholders: {id} {item} {description} {asset_type} {refs} {scene} {subject} {style} {framing}",
+    "              {lighting} {mood} {palette} {materials} {text} {constraints} {avoid} {aspect} {extra} {brand}",
+    "Lines that resolve to empty are dropped automatically.",
+    "Keep clauses SHORT - long avoid-lists dilute the instruction. 5-8 clauses is the sweet spot."
+  ],
+  "product-mockup": {
+    "label": "Catalog / product shot on clean background",
+    "aspect_default": "1:1",
+    "format_default": "jpeg",
+    "delivery_px_default": 2048,
+    "template": [
+      "Use case: product-mockup",
+      "Asset type: {asset_type}",
+      "Primary request: {description}",
+      "Input images: {refs}",
+      "Subject: {subject} - match the reference product exactly: shape, proportions, material, colour, hardware, stitching and label placement.",
+      "Scene/backdrop: {scene}",
+      "Style/medium: {style}",
+      "Composition/framing: {framing}",
+      "Lighting/mood: {lighting}",
+      "Mood: {mood}",
+      "Color palette: {palette}",
+      "Materials/textures: {materials}",
+      "Text (verbatim): {text}",
+      "Constraints: {constraints}",
+      "Avoid: {avoid}"
+    ],
+    "defaults": {
+      "scene": "seamless studio background, clean even gradient, subtle contact shadow under the product",
+      "style": "premium studio product photography, catalog-ready",
+      "lighting": "large softbox key light, soft fill, controlled gentle shadow",
+      "constraints": "true-to-reference colour and proportions; clean silhouette; crisp material micro-detail",
+      "avoid": "text; logos that were not requested"
+    }
+  },
+  "photorealistic-natural": {
+    "label": "Lifestyle / in-use photo",
+    "aspect_default": "4:5",
+    "format_default": "jpeg",
+    "delivery_px_default": 2048,
+    "template": [
+      "Use case: photorealistic-natural",
+      "Asset type: {asset_type}",
+      "Primary request: {description}",
+      "Input images: {refs}",
+      "Scene/backdrop: {scene}",
+      "Subject: {subject} - keep it consistent with the reference image if one is supplied.",
+      "Style/medium: {style}",
+      "Composition/framing: {framing}",
+      "Lighting/mood: {lighting}",
+      "Mood: {mood}",
+      "Color palette: {palette}",
+      "Materials/textures: {materials}",
+      "Text (verbatim): {text}",
+      "Constraints: {constraints}",
+      "Avoid: {avoid}"
+    ],
+    "defaults": {
+      "scene": "real-world everyday environment that suits the product",
+      "style": "candid editorial photograph, real textures, natural colour balance",
+      "lighting": "natural daylight, soft direction, realistic shadows, shallow depth of field",
+      "constraints": "unretouched skin, fabric and surface texture; believable real-world detail",
+      "avoid": "studio gloss; plastic skin; distorted hands"
+    }
+  },
+  "identity-preserve": {
+    "label": "Keep the exact product/person, change only the scene",
+    "aspect_default": "1:1",
+    "format_default": "jpeg",
+    "delivery_px_default": 2048,
+    "template": [
+      "Use case: identity-preserve",
+      "Asset type: {asset_type}",
+      "Primary request: {description}",
+      "Input images: {refs}",
+      "Subject: {subject}",
+      "Style/medium: {style}",
+      "Composition/framing: {framing}",
+      "Lighting/mood: {lighting}",
+      "Mood: {mood}",
+      "Constraints: keep the subject from the reference exactly as it is - same shape, proportions, material, colour, texture, label and hardware; change only what the primary request names; relight it to match the new scene and keep shadows consistent; {constraints}",
+      "Avoid: {avoid}"
+    ],
+    "defaults": {
+      "style": "photorealistic product photography",
+      "constraints": "no redesign and no restyling; no added or removed parts",
+      "avoid": "altered proportions; invented logos or text"
+    }
+  },
+  "precise-object-edit": {
+    "label": "Change/remove one thing, keep everything else",
+    "aspect_default": "same-as-input",
+    "format_default": "jpeg",
+    "delivery_px_default": 0,
+    "template": [
+      "Use case: precise-object-edit",
+      "Asset type: {asset_type}",
+      "Primary request: {description}",
+      "Input images: {refs}",
+      "Subject: {subject}",
+      "Style/medium: {style}",
+      "Constraints: change only the element named in the primary request; keep the rest pixel-faithful - same framing, background, lighting, geometry, colours and shadows; match the surrounding texture and perspective where the edit lands; {constraints}",
+      "Avoid: {avoid}"
+    ],
+    "defaults": {
+      "style": "keep the original photo look, resolution and colour",
+      "constraints": "no global recolour; no re-crop; no re-lighting",
+      "avoid": "changes outside the edited region"
+    }
+  },
+  "background-extraction": {
+    "label": "Clean cutout / transparent or white background",
+    "aspect_default": "1:1",
+    "format_default": "png",
+    "delivery_px_default": 2048,
+    "template": [
+      "Use case: background-extraction",
+      "Asset type: {asset_type}",
+      "Primary request: {description}",
+      "Input images: {refs}",
+      "Subject: {subject}",
+      "Style/medium: clean product cutout with crisp edges, the product itself is not restyled",
+      "Composition/framing: {framing}",
+      "Constraints: clean transparent background (or pure white #FFFFFF if transparency is unsupported); crisp anti-aliased silhouette; no halo and no leftover shadow; label text exactly as in the reference; the whole product inside frame; {constraints}",
+      "Avoid: {avoid}"
+    ],
+    "defaults": {
+      "constraints": "",
+      "avoid": "harsh drop shadow; background remnants; jagged edges"
+    }
+  },
+  "compositing": {
+    "label": "Place the product from a reference into a new scene",
+    "aspect_default": "1:1",
+    "format_default": "jpeg",
+    "delivery_px_default": 2048,
+    "template": [
+      "Use case: compositing",
+      "Asset type: {asset_type}",
+      "Primary request: {description}",
+      "Input images: {refs} - Image 1 is the product reference (identity lock); later images are the scene/environment reference",
+      "Subject: {subject}",
+      "Scene/backdrop: {scene}",
+      "Style/medium: {style}",
+      "Composition/framing: {framing}",
+      "Lighting/mood: {lighting}",
+      "Constraints: matched perspective, scale, ground contact and shadow direction; the product itself stays unchanged; realistic reflections; {constraints}",
+      "Avoid: {avoid}"
+    ],
+    "defaults": {
+      "style": "photorealistic composite that reads as a single photograph",
+      "lighting": "scene lighting applied to the product - same direction, colour temperature and shadow softness",
+      "constraints": "no floating product",
+      "avoid": "cut-out look; hard outline; colour cast mismatch; mismatched shadow direction"
+    }
+  },
+  "lighting-weather": {
+    "label": "Same shot, different light / time of day",
+    "aspect_default": "same-as-input",
+    "format_default": "jpeg",
+    "delivery_px_default": 0,
+    "template": [
+      "Use case: lighting-weather",
+      "Asset type: {asset_type}",
+      "Primary request: {description}",
+      "Input images: {refs}",
+      "Subject: {subject}",
+      "Lighting/mood: {lighting}",
+      "Mood: {mood}",
+      "Constraints: change only light, shadow, atmosphere and colour temperature; keep framing, geometry, composition and subject identity identical; {constraints}",
+      "Avoid: {avoid}"
+    ],
+    "defaults": {
+      "constraints": "no new objects; no re-crop; no change to the product itself",
+      "avoid": "moved camera; different lens; added props"
+    }
+  },
+  "style-transfer": {
+    "label": "Apply a look while keeping the subject",
+    "aspect_default": "1:1",
+    "format_default": "jpeg",
+    "delivery_px_default": 2048,
+    "template": [
+      "Use case: style-transfer",
+      "Asset type: {asset_type}",
+      "Primary request: {description}",
+      "Input images: {refs} - Image 1 is the subject; later images are the style reference",
+      "Subject: {subject}",
+      "Style/medium: {style}",
+      "Composition/framing: {framing}",
+      "Constraints: copy only the style cues (palette, texture, finish, lighting character); keep the subject recognisable and unchanged in shape and proportions; {constraints}",
+      "Avoid: {avoid}"
+    ],
+    "defaults": {
+      "style": "apply the reference style consistently across the whole frame",
+      "constraints": "no extra elements",
+      "avoid": "style drift; half-styled regions; new objects"
+    }
+  },
+  "sketch-to-render": {
+    "label": "Line drawing / CAD / sketch to photoreal render",
+    "aspect_default": "same-as-input",
+    "format_default": "jpeg",
+    "delivery_px_default": 2048,
+    "template": [
+      "Use case: sketch-to-render",
+      "Asset type: {asset_type}",
+      "Primary request: {description}",
+      "Input images: {refs} - Image 1 is the sketch/drawing to render",
+      "Subject: {subject}",
+      "Style/medium: {style}",
+      "Composition/framing: {framing} - keep the sketch's proportions, layout and perspective exactly",
+      "Lighting/mood: {lighting}",
+      "Mood: {mood}",
+      "Materials/textures: {materials}",
+      "Constraints: turn the supplied drawing into a realistic render without adding, removing or moving any element; {constraints}",
+      "Avoid: {avoid}"
+    ],
+    "defaults": {
+      "style": "photorealistic render with physically plausible materials",
+      "lighting": "studio lighting, soft key and fill",
+      "constraints": "respect the drawing's dimensions and proportions",
+      "avoid": "invented details; visible sketch lines"
+    }
+  },
+  "text-localization": {
+    "label": "Replace in-image text, keep layout",
+    "aspect_default": "same-as-input",
+    "format_default": "png",
+    "delivery_px_default": 0,
+    "template": [
+      "Use case: text-localization",
+      "Asset type: {asset_type}",
+      "Primary request: {description}",
+      "Input images: {refs}",
+      "Style/medium: keep the original art style, typography weight, spacing and hierarchy",
+      "Text (verbatim): {text} - render exactly these characters, no extra characters, no misspellings",
+      "Constraints: change only the text; preserve layout, background art, logo placement, colour and spacing; {constraints}",
+      "Avoid: {avoid}"
+    ],
+    "defaults": {
+      "constraints": "match the original font style, weight and letter spacing",
+      "avoid": "reflowing the layout; added copy; gibberish lettering"
+    }
+  },
+  "infographic-diagram": {
+    "label": "Diagram / infographic with labels",
+    "aspect_default": "4:5",
+    "format_default": "png",
+    "delivery_px_default": 2048,
+    "template": [
+      "Use case: infographic-diagram",
+      "Asset type: {asset_type}",
+      "Primary request: {description}",
+      "Scene/backdrop: {scene}",
+      "Subject: {subject}",
+      "Style/medium: {style}",
+      "Composition/framing: {framing} - clear top-to-bottom or left-to-right reading flow",
+      "Text (verbatim): {text} - every label spelled exactly as given, no extra words",
+      "Color palette: {palette}",
+      "Constraints: strong contrast; generous spacing; clean arrows and callouts; legible labels; {constraints}",
+      "Avoid: {avoid}"
+    ],
+    "defaults": {
+      "scene": "clean light neutral background",
+      "style": "clean vector-like infographic, flat colours, crisp lines",
+      "constraints": "no watermark; no logos or trademarks",
+      "avoid": "cluttered layout; duplicate labels; photographic texture"
+    }
+  },
+  "logo-brand": {
+    "label": "Logo / mark exploration",
+    "aspect_default": "1:1",
+    "format_default": "png",
+    "delivery_px_default": 2048,
+    "template": [
+      "Use case: logo-brand",
+      "Asset type: {asset_type}",
+      "Primary request: {description}",
+      "Style/medium: {style}",
+      "Composition/framing: single centred mark on a plain background with generous padding; {framing}",
+      "Color palette: {palette}",
+      "Text (verbatim): {text}",
+      "Constraints: original design only; strong silhouette; balanced negative space; readable at small size; {constraints}",
+      "Avoid: {avoid}"
+    ],
+    "defaults": {
+      "style": "vector-style logo mark, flat colours, minimal detail",
+      "constraints": "no gradients unless essential; no trademarks",
+      "avoid": "photorealism; 3D bevels; drop shadows; clutter; invented slogans"
+    }
+  },
+  "ui-mockup": {
+    "label": "App / web UI screen",
+    "aspect_default": "9:16",
+    "format_default": "png",
+    "delivery_px_default": 2048,
+    "template": [
+      "Use case: ui-mockup",
+      "Asset type: {asset_type}",
+      "Primary request: {description}",
+      "Style/medium: {style}",
+      "Composition/framing: {framing} - clear hierarchy, practical spacing, realistic content density",
+      "Color palette: {palette}",
+      "Text (verbatim): {text}",
+      "Constraints: shippable-looking UI; legible typography; consistent spacing and corner radius; {constraints}",
+      "Avoid: {avoid}"
+    ],
+    "defaults": {
+      "style": "realistic product UI, not concept art",
+      "constraints": "no logos or trademarks",
+      "avoid": "fantasy sci-fi UI; unreadable text; overlapping elements"
+    }
+  },
+  "stylized-concept": {
+    "label": "Concept art / stylized render",
+    "aspect_default": "16:9",
+    "format_default": "jpeg",
+    "delivery_px_default": 2048,
+    "template": [
+      "Use case: stylized-concept",
+      "Asset type: {asset_type}",
+      "Primary request: {description}",
+      "Scene/backdrop: {scene}",
+      "Subject: {subject}",
+      "Style/medium: {style}",
+      "Composition/framing: {framing}",
+      "Lighting/mood: {lighting}",
+      "Mood: {mood}",
+      "Color palette: {palette}",
+      "Materials/textures: {materials}",
+      "Constraints: {constraints}",
+      "Avoid: {avoid}"
+    ],
+    "defaults": {
+      "style": "cinematic concept art with consistent art direction",
+      "constraints": "single clear focal point",
+      "avoid": "mixed styles; cluttered composition"
+    }
+  },
+  "illustration-story": {
+    "label": "Illustration / comic panels",
+    "aspect_default": "1:1",
+    "format_default": "jpeg",
+    "delivery_px_default": 2048,
+    "template": [
+      "Use case: illustration-story",
+      "Asset type: {asset_type}",
+      "Primary request: {description}",
+      "Scene/backdrop: {scene}",
+      "Subject: {subject}",
+      "Style/medium: {style}",
+      "Composition/framing: {framing}",
+      "Color palette: {palette}",
+      "Text (verbatim): {text}",
+      "Constraints: consistent character design across panels; readable actions; {constraints}",
+      "Avoid: {avoid}"
+    ],
+    "defaults": {
+      "style": "storybook illustration, clean line work, warm palette",
+      "constraints": "no watermark",
+      "avoid": "inconsistent characters; extra panels; gibberish text"
+    }
+  },
+  "historical-scene": {
+    "label": "Period-accurate scene",
+    "aspect_default": "3:2",
+    "format_default": "jpeg",
+    "delivery_px_default": 2048,
+    "template": [
+      "Use case: historical-scene",
+      "Asset type: {asset_type}",
+      "Primary request: {description}",
+      "Scene/backdrop: {scene}",
+      "Subject: {subject}",
+      "Style/medium: {style}",
+      "Composition/framing: {framing}",
+      "Constraints: period-accurate clothing, props, materials and environment; no anachronisms; {constraints}",
+      "Avoid: {avoid}"
+    ],
+    "defaults": {
+      "style": "photorealistic photograph consistent with the stated period",
+      "constraints": "period-correct materials and wear",
+      "avoid": "modern objects or clothing"
+    }
+  }
+}

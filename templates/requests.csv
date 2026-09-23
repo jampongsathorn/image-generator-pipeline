@@ -1,0 +1,2 @@
+id,item_name,use_case,description,ref_images,aspect,delivery_px,format,text_verbatim,must_keep,must_avoid,asset_type,priority,notes
+EXAMPLE-001,Replace Me Leather Tote,product-mockup,"short factual description of the exact product, colour and finish",refs/EXAMPLE-001.jpg,1:1,2048,jpeg,,"shape, proportions, hardware","text, logos",catalogue image,high,one row per image - delete this example row

@@ -42,9 +42,7 @@ fi
 step "Templates"
 check "recipes.json is valid JSON"  python3 -c "import json;json.load(open('templates/recipes.json'))"
 check "brand.json is valid JSON"    python3 -c "import json;json.load(open('templates/brand.json'))"
-check "16 use cases present"        python3 -c "
-import json;d=json.load(open('templates/recipes.json'))
-n=len([k for k in d if not k.startswith('_')]);assert n==16,n"
+check "template + brand validation"  python3 tools/check_templates.py
 check "request sheet template has the required columns" python3 -c "
 import csv;h=next(csv.reader(open('templates/requests.csv')))
 assert {'id','item_name','use_case','description'} <= set(h), h"
@@ -55,25 +53,14 @@ check "plan builds from the example sheet" \
   "${IGP[@]}" plan --requests templates/requests.example.csv --round-id "$ROUND" --allow-warnings
 check "plan.json written"    test -f "rounds/$ROUND/plan.json"
 check "plan.md written"      test -f "rounds/$ROUND/plan.md"
-check "every item has a prompt with Constraints and Avoid" python3 -c "
-import json;d=json.load(open('rounds/$ROUND/plan.json'))
-for it in d['items']:
-    assert 'Constraints:' in it['prompt'], it['id']
-    assert 'Avoid:' in it['prompt'], it['id']
-"
-check "no unprefixed template lines in prompts" python3 -c "
-import json,re;d=json.load(open('rounds/$ROUND/plan.json'))
-allowed=('Use case','Asset type','Primary request','Input images','Scene/backdrop','Subject',
-         'Style/medium','Composition/framing','Lighting/mood','Mood','Color palette',
-         'Materials/textures','Text (verbatim)','Constraints','Avoid','Extra direction')
-for it in d['items']:
-    for line in it['prompt'].splitlines():
-        assert line.split(':')[0] in allowed, (it['id'], line[:60])
-"
+check "plan content validation" python3 tools/check_templates.py --plan "rounds/$ROUND/plan.json"
 check "unknown use_case is reported, not silently ignored" bash -c "
 printf 'id,item_name,use_case,description\nX1,Test,not-a-real-slug,made up\n' > /tmp/igp-bad.csv
 python3 tools/igp.py plan --requests /tmp/igp-bad.csv --round-id smoke-bad 2>&1 | grep -q 'unknown use_case'"
 rm -rf rounds/smoke-bad
+check "template EXAMPLE row is skipped by default" bash -c "
+python3 tools/igp.py plan --requests templates/requests.csv --round-id smoke-example 2>&1 | grep -q 'example row'"
+rm -rf rounds/smoke-example
 
 step "Round mechanics"
 if command -v convert >/dev/null; then

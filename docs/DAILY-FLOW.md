@@ -22,7 +22,7 @@ and tell the agent to run the batch.
    | --- | --- | --- |
    | `id` | unique SKU / item code | `SKU-1001` |
    | `item_name` | product name | `Classic Leather Tote` |
-   | `use_case` | what kind of image (see `skills/arena-imagegen/references/use-cases.md`) | `product-mockup` |
+   | `use_case` | what kind of image (see `skills/arena-imagegen/references/use-cases.md`) | `food-hero`, `packaging-shot`, `flat-lay` |
    | `description` | short factual description: product, colour, finish, what is happening | `matte black full-grain leather tote with gold clasp` |
    | `ref_images` | reference file(s) in `refs/`, separated by `;` | `refs/SKU-1001-front.jpg` |
    | `aspect` | `1:1`, `4:5`, `16:9`, ... | `1:1` |
@@ -48,6 +48,15 @@ and tell the agent to run the batch.
 - One image per row. Want 3 angles? Write 3 rows.
 - A `description` that is too vague is the #1 reason an image comes back wrong.
 - Reference photo quality sets the ceiling for identity accuracy - front, well lit, whole product.
+
+**Food & drink specifics**
+
+- Say whether it is served **hot or cold** - that decides steam vs condensation/ice.
+- Name the garnish, the container and the portion if they matter: "tall glass, orange peel, no straw".
+- For anything with a label: put the exact wording in `text_verbatim`; never let the model invent
+  badges, nutrition marks or health claims.
+- Props are welcome for food shots (that is what makes them appetizing) - list the ones you want in
+  the `description` instead of leaving it to the generator.
 
 ---
 
@@ -124,3 +133,6 @@ rounds/<id>/review/
 - คำบรรยาย (description) ยิ่งชัด รูปยิ่งตรง - เขียนเป็นข้อเท็จจริง เช่น สี วัสดุ ทรง
 - ต้องแก้ไขรูปเดิม ให้ใส่ `must_keep` ว่ารายละเอียดไหนห้ามเปลี่ยน
 - ถ้ารูปมีข้อความ ให้ใส่ `text_verbatim` เป็นข้อความตรงเป๊ะ
+- รูปอาหาร/เครื่องดื่ม: ระบุว่าร้อนหรือเย็น (ร้อนให้มีไอน้ำ เย็นให้มีหยดน้ำ/น้ำแข็ง) และระบุเครื่องตกแต่ง
+- ถ้าเป็นสินค้าบรรจุภัณฑ์ ให้ใส่ข้อความบนฉลากใน `text_verbatim` ห้ามให้ AI คิดข้อความ สัญลักษณ์ หรือคำกล่าวอ้างสุขภาพขึ้นมาเอง
+- สินค้าอาหารใส่พร็อพได้ (เพื่อให้ดูน่ากิน) โดยระบุพร็อพที่ต้องการในช่อง description

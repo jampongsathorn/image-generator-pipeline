@@ -72,6 +72,20 @@ Then: `ref_images`, `aspect`, `delivery_px`, `format`, `text_verbatim`, `must_ke
 Full column guide: [`docs/DAILY-FLOW.md`](docs/DAILY-FLOW.md) · use-case list:
 [`skills/arena-imagegen/references/use-cases.md`](skills/arena-imagegen/references/use-cases.md).
 
+## Tuned for food & drink
+
+The style lock and recipes ship configured for **food & drink** imagery (rename `brand_name` in
+`templates/brand.json` and adjust the palette once):
+
+- 3 food-specific use cases on top of the 16 shared ones: `food-hero` (styled dish/drink, appetite
+  appeal), `packaging-shot` (bottle/jar/pouch with a legible label) and `flat-lay` (overhead layout).
+- The brand `look` (palette, materials, mood) applies to every image; the clean **studio** setup
+  applies only to `product-mockup`, `packaging-shot`, `background-extraction` and `sketch-to-render`.
+  Styled food shots keep their own scene and light, so a tabletop never inherits a seamless backdrop.
+- Guardrails that matter for food: no invented labels, badges, nutrition or health claims; freshness
+  cues (crumb, condensation, ice, oil sheen) named explicitly; steam only on hot, condensation only
+  on cold; portions that match the product.
+
 ## Prompt quality is the product
 
 Every prompt is assembled from three layers so that ten separate generations look like one shoot:
@@ -94,7 +108,7 @@ request row  ->  templates/recipes.json  ->  templates/brand.json
 ```
 AGENTS.md                 agent rules: read-first list, hard limits, command reference
 README.md                 this file
-templates/                recipes.json, brand.json, requests.csv, requests.example.csv
+templates/                recipes.json (19 use cases), brand.json (food & drink style lock), request sheets
 tools/igp.py              toolkit: intake/plan/optimize/upscale/sheet/verify/deliver/status/budget/prune
 tools/fetch_upstream_skill.sh   vendor OpenAI's imagegen prompt reference for comparison (Apache-2.0)
 skills/arena-imagegen/    the skill: SKILL.md, references/, NOTICE.md

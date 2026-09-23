@@ -58,7 +58,7 @@ Prompts are built from three layers and assembled by `tools/igp.py plan`:
 
 ```
 request-sheet row  -> per-image intent (the only part data entry writes)
-templates/recipes.json -> use-case structure (16 slugs) + defaults
+templates/recipes.json -> use-case structure (19 slugs: 16 shared with openai/skills + 3 food & drink) + defaults
 templates/brand.json   -> style lock: 'look' everywhere, 'studio' for studio use cases only
 ```
 

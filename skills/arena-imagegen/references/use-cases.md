@@ -1,7 +1,7 @@
 # Use-case taxonomy and key levers
 
-16 slugs, matching the naming used by `openai/skills` imagegen so prompts stay portable between
-tools. The slug goes in the request sheet's `use_case` column; `tools/igp.py plan` picks the recipe
+19 slugs: 16 that match the naming used by `openai/skills` imagegen (so prompts stay portable
+between tools) plus 3 tuned for food & drink work. The slug goes in the request sheet's `use_case` column; `tools/igp.py plan` picks the recipe
 from `templates/recipes.json` and applies its defaults.
 
 ## Contents
@@ -106,6 +106,30 @@ Replace/translate in-image text, keep layout.
 - Default output: native size PNG.
 - Best practice: if the text matters commercially, generate clean artwork and typeset the real text.
 
+## Food & drink (added for this project)
+
+These three sit alongside the upstream slugs and inherit the brand `look` (palette, materials, mood)
+but keep their own scene and lighting, because styled food and seamless-studio setups do not mix.
+
+### `food-hero`
+Styled dish or drink, appetite appeal. The workhorse for menu and social images.
+- Levers: styled surface + tasteful props, directional daylight, gloss on liquid/glaze, garnish and garnish placement, steam (hot) vs condensation (cold).
+- Watch: wilted or plastic-looking food, fake garnish, fingerprints/smears on glass, props that compete with the subject.
+- Default output: 1:1 JPEG 2048px.
+
+### `packaging-shot`
+Bottle / jar / pouch / box with a legible label. Use for marketplace listings and packshots.
+- Levers: label layout and print, cap/lid, material (glass, foil, kraft), reflection under the pack.
+- Watch: invented badges or nutrition claims, misspelled label text, glare hiding the label.
+  When the label text matters commercially, generate clean artwork and typeset the real label.
+- Default output: 1:1 JPEG 2048px. Requires `text_verbatim` for any label wording.
+
+### `flat-lay`
+Overhead layout of a dish, ingredients or a set (social posts, recipe cards, menu sections).
+- Levers: surface (linen/wood/stone), item spacing, hero dominance, consistent scale.
+- Watch: overlapping or cropped items, cluttered arrangement, a tilted camera angle.
+- Default output: 1:1 JPEG 2048px.
+
 ## Quick chooser
 
 | The row says... | Use |
@@ -126,6 +150,9 @@ Replace/translate in-image text, keep layout.
 | "concept art", "3D render look" | `stylized-concept` |
 | "illustration", "comic", "storybook" | `illustration-story` |
 | "vintage", "period", "19th century" | `historical-scene` |
+| "hero shot of the dish", "appetizing", "menu photo" | `food-hero` |
+| "bottle with the label", "packshot", "front of pack" | `packaging-shot` |
+| "overhead", "flat lay", "ingredients laid out" | `flat-lay` |
 
 If the row's `use_case` is unknown, `igp.py plan` warns and suggests the closest slug, then falls
 back to `product-mockup`. Fix the sheet rather than accepting the fallback when the row was meant

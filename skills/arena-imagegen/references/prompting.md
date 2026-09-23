@@ -85,7 +85,8 @@ left/right placement unless the surrounding layout needs it, restyling an identi
 - For edits, the invariant sentence is mandatory:
   `change only the background; keep the product, its edges, lighting, geometry and framing unchanged`.
 - **Repeat invariants on every iteration.** Drift between iterations is the norm, not the exception.
-- 5-8 constraint clauses and 5-10 avoid clauses is the useful range; beyond that they compete.
+- 5-8 constraint clauses and 5-10 avoid clauses is the useful range (food & drink rows run 1-2
+  higher: freshness, garnish and claim limits are all real requirements); beyond that they compete.
 
 ## Text in images
 
@@ -120,6 +121,8 @@ Generators still misspell. Treat in-image text as a risk with mitigations:
   `unretouched` - this is what stops the over-smoothed look.
 - Same light direction across a batch is what makes set-consistency believable; it lives in the
   brand lock's `lighting` line.
+- **Food & drink:** appetite appeal comes from texture and light, not adjectives - name crumb/crust,
+  condensation, ice, oil sheen and glossy highlights, and match the serving temperature.
 
 ## Consistency across a batch
 

@@ -1,43 +1,45 @@
 {
-  "_schema": "igp-brand/v2",
+  "_schema": "igp-brand/v3",
   "_notes": [
     "The STYLE LOCK. Locked values are added to every prompt - this is what makes a batch of 10 images look like one shoot.",
+    "Tuned for FOOD & DRINK imagery. Rename brand_name/campaign and adjust the palette once, then leave it alone.",
     "'look'      -> applies to EVERY use case (colour grade, materials, mood).",
-    "'studio'    -> applies only to the use cases listed in 'studio_use_cases' (clean studio setups).",
-    "               Lifestyle / concept / historical shots keep the photographic direction their recipe defines,",
-    "               so a street scene never inherits a seamless studio backdrop.",
+    "'studio'    -> applies only to the use cases listed in 'studio_use_cases' (clean, controlled setups).",
+    "               Styled food shots (food-hero, flat-lay) keep their own scene/lighting from the recipe,",
+    "               so a styled tabletop never inherits a seamless studio backdrop.",
     "Resolution order per prompt line: request-sheet column -> brand lock -> recipe default.",
     "Empty strings are skipped, so delete whatever you do not want.",
-    "Keep clauses short. Consistency comes from: a locked look + studio setup + the same reference image",
-    "+ identical framing words + generating the whole batch in one round."
+    "Food-specific rule: tasteful props ARE wanted (appetite appeal), unlike hard-goods catalogues -",
+    "the avoid list targets clutter and fake-looking food instead of props in general."
   ],
-  "brand_name": "ACME Home & Living",
-  "campaign": "2026 Catalogue - Spring/Summer",
+  "brand_name": "YOUR BRAND - Food & Drink",
+  "campaign": "Catalogue, menu and social images 2026",
   "look": {
-    "palette": "warm neutral base with charcoal #26262B, sand #D9C7A7 and olive #6E7A5A accents",
-    "materials": "real material micro-texture: grain, weave, brushed metal, matte ceramic",
-    "mood": "calm, premium, trustworthy"
+    "palette": "warm, appetizing neutrals with fresh green accents",
+    "materials": "condensation on cold drinks, glass and foil highlights, paper stock, crumb and crust",
+    "mood": "fresh, appetizing, trustworthy"
   },
   "studio_use_cases": [
     "product-mockup",
+    "packaging-shot",
     "background-extraction",
     "sketch-to-render"
   ],
   "studio": {
-    "scene": "seamless light neutral studio background (#F4F2EE to #FFFFFF), identical across the batch",
-    "style": "premium commercial catalogue photography, crisp and clean",
-    "lighting": "large softbox key light slightly camera-left, soft fill, gentle contact shadow",
-    "framing": "centred product, camera at product mid-height, mild three-quarter angle, product fills about 75% of the frame"
+    "scene": "seamless light neutral backdrop with a subtle surface, identical across the batch",
+    "style": "premium food & beverage photography, crisp and clean",
+    "lighting": "large softbox key slightly camera-left with a soft fill, controlled highlight on glass, liquid and foil",
+    "framing": "centred product, camera at label height, product fills about 75% of the frame"
   },
   "global_constraints": [
     "photographic realism with one consistent light direction",
-    "product colour and proportions true to the reference image"
+    "colour, shape and proportions true to the reference image"
   ],
   "global_avoid": [
     "watermark or caption bar",
-    "illegible or invented text on packaging",
-    "unrequested extra props or hands",
-    "HDR look or heavy vignette",
+    "misspelled, invented or unapproved text or claims on packaging",
+    "unapproved health, nutrition or certification claims",
+    "HDR look, heavy vignette or oversaturated colour",
     "duplicated or warped geometry"
   ],
   "output_defaults": {

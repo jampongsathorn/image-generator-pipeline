@@ -37,7 +37,7 @@
       "style": "premium studio product photography, catalog-ready",
       "lighting": "large softbox key light, soft fill, controlled gentle shadow",
       "constraints": "true-to-reference colour and proportions; clean silhouette; crisp material micro-detail",
-      "avoid": "text; logos that were not requested"
+      "avoid": "extra objects, props or hands"
     }
   },
   "photorealistic-natural": {
@@ -66,8 +66,8 @@
       "scene": "real-world everyday environment that suits the product",
       "style": "candid editorial photograph, real textures, natural colour balance",
       "lighting": "natural daylight, soft direction, realistic shadows, shallow depth of field",
-      "constraints": "unretouched skin, fabric and surface texture; believable real-world detail",
-      "avoid": "studio gloss; plastic skin; distorted hands"
+      "constraints": "unretouched natural surface texture; believable real-world detail",
+      "avoid": "studio gloss; plastic-looking or over-smoothed surfaces; distorted hands"
     }
   },
   "identity-preserve": {
@@ -389,6 +389,96 @@
       "style": "photorealistic photograph consistent with the stated period",
       "constraints": "period-correct materials and wear",
       "avoid": "modern objects or clothing"
+    }
+  },
+  "food-hero": {
+    "label": "Styled dish/drink hero - appetite appeal",
+    "aspect_default": "1:1",
+    "format_default": "jpeg",
+    "delivery_px_default": 2048,
+    "template": [
+      "Use case: food-hero",
+      "Asset type: {asset_type}",
+      "Primary request: {description}",
+      "Input images: {refs}",
+      "Scene/backdrop: {scene}",
+      "Subject: {subject} - the food or drink exactly as described, with the correct portion, container and garnish",
+      "Style/medium: {style}",
+      "Composition/framing: {framing}",
+      "Lighting/mood: {lighting}",
+      "Mood: {mood}",
+      "Color palette: {palette}",
+      "Materials/textures: {materials}",
+      "Text (verbatim): {text}",
+      "Constraints: {constraints}",
+      "Avoid: {avoid}"
+    ],
+    "defaults": {
+      "scene": "styled tabletop surface with a few tasteful supporting props, background that does not compete with the food",
+      "style": "premium editorial food photography, shot as if captured in the moment",
+      "lighting": "soft directional daylight, gentle falloff, glossy highlights on liquids, glazes and ice",
+      "constraints": "fresh and appetizing at first glance; visible texture (crumb, crust, condensation, ice); correct portion, container and garnish exactly as described; steam only on hot dishes; condensation only on cold drinks",
+      "avoid": "wilted, dry or plastic-looking food; fake or misplaced garnish; messy spills; fingerprints or smears on glass; cluttered props"
+    }
+  },
+  "packaging-shot": {
+    "label": "Bottle / jar / pouch / box with a legible label",
+    "aspect_default": "1:1",
+    "format_default": "jpeg",
+    "delivery_px_default": 2048,
+    "template": [
+      "Use case: packaging-shot",
+      "Asset type: {asset_type}",
+      "Primary request: {description}",
+      "Input images: {refs}",
+      "Subject: {subject} - match the pack exactly: shape, proportions, material, colour, cap or lid, label layout and print",
+      "Scene/backdrop: {scene}",
+      "Style/medium: {style}",
+      "Composition/framing: {framing}",
+      "Lighting/mood: {lighting}",
+      "Mood: {mood}",
+      "Color palette: {palette}",
+      "Materials/textures: {materials}",
+      "Text (verbatim): {text} - render the label text character for character, no invented words",
+      "Constraints: {constraints}",
+      "Avoid: {avoid}"
+    ],
+    "defaults": {
+      "scene": "seamless light neutral backdrop with a subtle surface and a soft reflection under the pack",
+      "style": "premium food & beverage packaging photography, crisp and clean",
+      "lighting": "large softbox key slightly camera-left, soft fill, controlled highlight on glass, plastic or foil",
+      "constraints": "front-of-pack label fully legible and unobstructed; label spelling verbatim; pack edges crisp and complete; printed layout square to the camera; no invented badges, seals or claims",
+      "avoid": "fake certification or nutrition badges; distorted cap or label; extra packs; glare hiding the label"
+    }
+  },
+  "flat-lay": {
+    "label": "Overhead layout of dish, ingredients or a set",
+    "aspect_default": "1:1",
+    "format_default": "jpeg",
+    "delivery_px_default": 2048,
+    "template": [
+      "Use case: flat-lay",
+      "Asset type: {asset_type}",
+      "Primary request: {description}",
+      "Input images: {refs}",
+      "Scene/backdrop: {scene}",
+      "Subject: {subject}",
+      "Style/medium: {style}",
+      "Composition/framing: {framing} - camera directly overhead, every element non-overlapping and fully visible",
+      "Lighting/mood: {lighting}",
+      "Mood: {mood}",
+      "Color palette: {palette}",
+      "Materials/textures: {materials}",
+      "Text (verbatim): {text}",
+      "Constraints: balanced, deliberate layout with even spacing; consistent scale between items; everything inside frame; {constraints}",
+      "Avoid: {avoid}"
+    ],
+    "defaults": {
+      "scene": "styled flat surface such as linen, wood or stone, with tasteful supporting ingredients",
+      "style": "clean editorial flat-lay, top-down composition",
+      "lighting": "soft even light from one side, short natural shadows, no blown highlights",
+      "constraints": "balanced layout with even spacing; consistent scale between items; hero item clearly dominant",
+      "avoid": "overlapping or cropped items; scattered crumbs and mess; cluttered arrangement; tilted camera angle; wilted or plastic-looking food"
     }
   }
 }

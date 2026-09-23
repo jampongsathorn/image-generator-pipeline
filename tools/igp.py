@@ -149,42 +149,44 @@ def _tokens(text: str) -> set[str]:
     return set(re.findall(r"[a-z0-9#]+", text.lower()))
 
 
-def _near_duplicate(atom: str, kept: list[str]) -> bool:
-    """True when a clause is (almost) already covered by an earlier one.
+def _near_duplicate(clause: str, kept: list[str]) -> bool:
+    """True when a clause is already covered by an earlier one.
 
-    Exact match, substring containment, or heavy token overlap - keeps prompts from
-    stacking 'text' / 'illegible or invented text on packaging' / 'no visible text'.
+    Exact match always counts. Fuzzy matching (containment / heavy token overlap) only
+    applies to clauses with 3+ tokens, so short atoms like 'ice', 'text' or 'garnish'
+    survive next to a longer clause that happens to mention them.
     """
-    tokens = _tokens(atom)
+    tokens = _tokens(clause)
     for other in kept:
-        if atom == other:
+        if clause == other:
             return True
         other_tokens = _tokens(other)
-        if not tokens or not other_tokens:
+        if len(tokens) < 3 or len(other_tokens) < 3:
             continue
-        if atom in other or other in atom:
+        if len(clause) >= 12 and (clause in other or other in clause):
             return True
         if len(tokens & other_tokens) / min(len(tokens), len(other_tokens)) >= 0.6:
             return True
     return False
 
 
-def join_unique(parts, max_items: int = 12) -> str:
-    """Join clause lists (constraints / avoid) with atom-level de-duplication.
+def join_unique(parts) -> str:
+    """Join clause lists (constraints / avoid) with near-duplicate collapse.
 
-    Splits on ';' and ',' so a clause repeated by the request sheet, the recipe and the
-    brand lock collapses into one item instead of stacking. Capped, because very long
-    avoid-lists dilute the instruction (see skills/arena-imagegen/references/prompting.md).
+    The separator is ';' only. Clauses routinely contain commas ('wilted, dry or
+    plastic-looking food', 'visible texture (crumb, crust, condensation, ice)'), and
+    splitting on those corrupts the meaning. Nothing is truncated either: silently
+    dropping a requirement is worse than a slightly long prompt - `lint_prompt`
+    reports over-long lists so a human can trim the source instead.
     """
     out: list[str] = []
     for part in parts:
-        for chunk in as_text(part).split(";"):
-            for atom in chunk.split(","):
-                atom = " ".join(atom.split()).strip().strip(".").strip()
-                if not atom or _near_duplicate(atom, out):
-                    continue
-                out.append(atom)
-    return "; ".join(out[:max_items])
+        for clause in as_text(part).split(";"):
+            clause = " ".join(clause.split()).strip().strip(".").strip()
+            if not clause or _near_duplicate(clause, out):
+                continue
+            out.append(clause)
+    return "; ".join(out)
 
 
 def split_refs(value: str) -> list[str]:
@@ -516,10 +518,12 @@ def lint_prompt(prompt: str, use_case: str, row: dict, delivery_px: int) -> list
                       f"generate at native size and run `igp.py upscale --to-px {delivery_px}`")
     if len(split_refs(row.get("ref_images", ""))) > 3:
         issues.append("more than 3 reference images - label each one's role or quality drops")
-    for label, text, limit in (("Constraints", constraints_of(prompt), 8), ("Avoid", avoid_of(prompt), 10)):
+    # food/drink rows legitimately carry 1-2 more clauses than hard-goods rows
+    for label, text, limit in (("Constraints", constraints_of(prompt), 9), ("Avoid", avoid_of(prompt), 12)):
         count = len([a for a in text.split(";") if a.strip()])
         if count > limit:
-            issues.append(f"{label} list has {count} clauses - trim to the {limit} that matter most")
+            issues.append(f"{label} list has {count} clauses - trim the {label.lower()} in the sheet/brand/recipe "
+                          f"source to the {limit} that matter most")
     return issues
 
 

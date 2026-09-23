@@ -61,6 +61,28 @@ image is still usable - but say so explicitly.
 | `sketch-to-render` | invented details not in the sketch | element count vs the drawing, proportions |
 | `style-transfer` | style drift, half-styled regions | whole frame styled consistently, subject intact |
 | `historical-scene` | anachronisms | modern objects, fabrics, tools, signage |
+| `food-hero` | food looks dry, plastic or staged | crumb/crust texture, gloss on liquid, garnish placement, steam vs condensation |
+| `packaging-shot` | invented badges, claims, or misspelled labels | label spelling verbatim, no nutrition/certification marks, label unobstructed |
+| `flat-lay` | overlapping or cropped items, busy layout | spacing, hero dominance, everything inside frame, no tilt |
+
+## Food & drink specifics
+
+- **Appetite appeal is a hard requirement, not a nicety.** If the dish/drink does not look appetizing
+  in the first second, reject it even when every other check passes.
+- **Freshness cues:** crumb and crust structure on baked goods, oil sheen on hot food, condensation
+  and ice on cold drinks, glossy glaze on pastries. Steam only on hot dishes; condensation only on
+  cold drinks - mixing them reads as fake.
+- **Garnish must match the row**, including placement and quantity. A garnish the row did not ask for
+  is an invented detail.
+- **Claims are a legal risk, not a style issue.** Never add health, nutrition, "organic", "sugar-free"
+  or certification wording that the sheet did not supply verbatim. If a generated label contains
+  invented claims, reject it - do not crop around it and hope.
+- **Packaging text**: treat every label as `Text (verbatim)` work. Spell the wording letter-by-letter
+  in the prompt when it is short, inspect at 100%, and prefer typesetting the final label in post.
+- **Props:** for food, tasteful props are wanted (unlike hard-goods catalogues). The avoid list
+  targets *clutter* and props that compete with the subject, not props in general.
+- **Portion realism:** portions must match what the product actually serves; oversized portions on a
+  packaging shot misrepresent the product.
 
 ## Defect → prompt fix
 
@@ -79,6 +101,10 @@ image is still usable - but say so explicitly.
 | Warped geometry / duplicated parts | add `correct single-point perspective, straight edges, symmetrical hardware` |
 | Grainy/low detail at delivery size | regenerate at native max, then `igp.py upscale --to-px`, then one unsharp pass |
 | Set looks mismatched | verify the brand lock was identical for all rows; regenerate the odd one out in the next round |
+| Food looks dry / unappetizing | add `glossy highlights, fresh garnish, visible crumb or condensation` - do not just say "appetizing" |
+| Dish/drink looks plastic or fake | add `real food texture, natural imperfections, no plastic-looking surfaces` |
+| Invented label claims or badges | list the allowed wording verbatim in `Text (verbatim)` and add `no other badges, seals, nutrition or health claims` |
+| Steam on a cold drink / ice in a hot dish | state the serving temperature explicitly in the constraints |
 
 **One change per retry.** Two changes at once and you learn nothing about which one worked.
 

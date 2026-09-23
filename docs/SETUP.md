@@ -19,7 +19,7 @@ Nothing here calls an external image API. Generation happens with Arena's built-
 | `skills/arena-imagegen/SKILL.md` | the skill entry point (round loop, prompt schema, non-negotiables) |
 | `skills/arena-imagegen/references/` | prompting, batching, QA, detail fidelity, storage budget, use cases |
 | `tools/igp.py` | the toolkit, one file, stdlib-only Python |
-| `templates/recipes.json` | 16 use-case prompt templates + defaults |
+| `templates/recipes.json` | 19 use-case prompt templates + defaults (16 upstream slugs + food-hero, packaging-shot, flat-lay) |
 | `templates/brand.json` | the style lock (`look` everywhere, `studio` for studio use cases) |
 | `templates/requests.csv` | request-sheet header + one EXAMPLE row (columns: 14) |
 

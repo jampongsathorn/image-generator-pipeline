@@ -13,12 +13,17 @@ jobs:
   validate:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: python + image engine
         run: |
           python3 -V
-          (convert -version || magick -version || echo "no imagemagick") | head -2
+          # GitHub runners (like a bare Arena session) may have no image engine at all,
+          # so install the same fallback we tell teammates to use.
+          python3 -m pip install --quiet --upgrade pip
+          python3 -m pip install --quiet Pillow
+          python3 -c "import PIL; print('Pillow', PIL.__version__)"
+          (convert -version || magick -version || echo "no imagemagick - Pillow path in use") | head -2
 
       - name: environment readiness
         run: python3 tools/igp.py doctor

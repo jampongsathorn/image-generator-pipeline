@@ -96,6 +96,27 @@ and tell the agent to run the batch.
 
 ---
 
+## Does the reference image survive, or does the AI redraw it?
+
+Depends on the `use_case` you pick. Edits preserve the product; generation treats the reference as
+inspiration:
+
+| `use_case` | Role of the image you send | Product preserved? | Background |
+| --- | --- | --- | --- |
+| `identity-preserve` | edit target | **yes** - shape, proportions, label, hardware | changes as ordered |
+| `precise-object-edit` | edit target | everything except the named element | unchanged |
+| `lighting-weather` | edit target | yes | unchanged (light only) |
+| `compositing` | product reference + scene plate | yes, relit/relocated to match | replaced by the scene |
+| `product-mockup`, `food-hero`, `packaging-shot`, `flat-lay` | **reference / inspiration** | close, not guaranteed - the AI re-renders | changes as ordered |
+| `background-extraction` | edit target | yes (edges cleaned up) | white / transparent |
+
+Worked example with the same reference (see `demo/ref-vs-new.jpg`):
+`identity-preserve` looks like the same bottle in a new place, while `product-mockup` gives a
+catalogue-style re-render of that bottle in a new studio setup.
+
+For 100%-critical artwork (labels, logos, legal text): use `identity-preserve`, state `must_keep`,
+put the wording in `text_verbatim`, inspect at 100%, and typeset the final text in a design tool.
+
 ## What the team gets back
 
 ```

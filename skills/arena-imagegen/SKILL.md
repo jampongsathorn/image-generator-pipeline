@@ -112,6 +112,7 @@ defect → prompt-fix table). Spend retries only on priority rows.
 | `references/prompting.md` | writing or fixing any prompt |
 | `references/use-cases.md` | choosing a use-case slug / knowing its key levers |
 | `references/batches.md` | batching, retry budgets, reporting per round |
+| `references/menu-audit-intake.md` | the team sent menu screenshots marked ✅ / ❌ |
 | `references/quality-control.md` | an image came back wrong and you need the fix |
 | `references/detail-fidelity.md` | resolution, upscaling, "do not lose detail" work |
 | `references/storage-budget.md` | before a big batch, or when `igp.py budget` warns |

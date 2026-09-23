@@ -988,11 +988,13 @@ def cmd_intake(args) -> int:
     src = Path(args.source) if args.source else INBOX / args.name
     if not src.is_dir():
         die(f"nothing to intake at {src}")
-    sheets = sorted(p for p in src.iterdir()
-                    if p.is_file() and p.suffix.lower() in (".csv", ".tsv", ".json"))
+    sheets = sorted((p for p in src.iterdir()
+                     if p.is_file() and p.suffix.lower() in (".csv", ".tsv", ".json")),
+                    key=lambda p: (p.stem.lower() != "requests", p.name))
     sheet = sheets[0] if sheets else None
     if len(sheets) > 1:
-        warn(f"{len(sheets)} sheets found, using {sheet.name}")
+        warn(f"{len(sheets)} sheets found, using {sheet.name} "
+             f"(rename the one to use to requests.csv to make this unambiguous)")
     if sheet is None:
         sheet = skeleton_sheet(src)
 

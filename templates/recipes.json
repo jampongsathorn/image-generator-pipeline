@@ -414,11 +414,11 @@
       "Avoid: {avoid}"
     ],
     "defaults": {
-      "scene": "styled tabletop surface with a few tasteful supporting props, background that does not compete with the food",
-      "style": "premium editorial food photography, shot as if captured in the moment",
-      "lighting": "soft directional daylight, gentle falloff, glossy highlights on liquids, glazes and ice",
-      "constraints": "fresh and appetizing at first glance; visible texture (crumb, crust, condensation, ice); correct portion, container and garnish exactly as described; steam only on hot dishes; condensation only on cold drinks",
-      "avoid": "wilted, dry or plastic-looking food; fake or misplaced garnish; messy spills; fingerprints or smears on glass; cluttered props"
+      "scene": "plain white or light-wood table, clean neutral background, no props beyond the dish and its own sides",
+      "style": "natural daylight food photography, honest home-kitchen plating",
+      "lighting": "soft daylight from the side-left with gentle fill, natural shadows",
+      "constraints": "fresh and appetizing at first glance; correct portion and garnish exactly as described; visible food texture (crumb, crust, glossy sauce, fresh herbs); steam only on hot dishes",
+      "avoid": "wilted, dry or plastic-looking food; fake or misplaced garnish; cluttered props; messy spills"
     }
   },
   "packaging-shot": {

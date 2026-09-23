@@ -1,0 +1,211 @@
+{
+  "schema": "igp-round/v1",
+  "round_id": "2026-09-23-r01",
+  "created": "2026-09-23T08:45:27",
+  "brand": "Food4Thought",
+  "campaign": "Menu photo refresh 2026 (62 items)",
+  "source_sheet": "/tmp/pilot.csv",
+  "round_size": 10,
+  "items": [
+    {
+      "id": "F4T-013",
+      "source_id": "F4T-013",
+      "item_name": "Classic Eggs Benedict",
+      "use_case": "food-hero",
+      "use_case_requested": "food-hero",
+      "priority": "high",
+      "notes": "pilot round 1; confirm with kitchen: side items; bread type",
+      "ref_images": [],
+      "aspect": "1:1",
+      "delivery_px": 2048,
+      "format": "jpeg",
+      "stem": "f4t-013__classic-eggs-benedict",
+      "raw_file": "raw/f4t-013__classic-eggs-benedict.png",
+      "out_file": "out/f4t-013__classic-eggs-benedict.jpg",
+      "prompt": "Use case: food-hero\nAsset type: menu photo - Eggs Brunch\nPrimary request: 2 poached eggs with smoked ham on toasted bread, glossy hollandaise, side greens and tomato\nScene/backdrop: plain white or light-wood table, clean neutral background, no props beyond the dish and its own sides\nSubject: Classic Eggs Benedict - the food or drink exactly as described, with the correct portion, container and garnish\nStyle/medium: natural daylight food photography, honest home-kitchen plating\nComposition/framing: square 1:1 format\nLighting/mood: soft daylight from the side-left with gentle fill, natural shadows\nMood: honest, fresh, home-kitchen made - appetizing without looking staged\nColor palette: fresh natural colours, plenty of green and red accents on white crockery, light wood and white surfaces\nMaterials/textures: real food texture: crumb and crust, glossy sauce, fresh herbs, natural moisture\nConstraints: the dish exactly as the kitchen serves it (ingredients, portion, plating); fresh and appetizing at first glance; correct portion and garnish exactly as described; visible food texture (crumb, crust, glossy sauce, fresh herbs); steam only on hot dishes; photographic realism with one consistent light direction; colour, shape and proportions true to the reference image\nAvoid: ingredients that are not in the description; extra sides; restaurant logo or text; wilted, dry or plastic-looking food; fake or misplaced garnish; cluttered props; messy spills; watermark or caption bar; misspelled, invented or unapproved text or claims; unapproved health, nutrition or certification claims; HDR look, heavy vignette or oversaturated colour",
+      "lint": [
+        "prompt is 1643 chars - trim the description, long prompts dilute the important parts"
+      ]
+    },
+    {
+      "id": "F4T-066",
+      "source_id": "F4T-066",
+      "item_name": "Hummus Wrap",
+      "use_case": "food-hero",
+      "use_case_requested": "food-hero",
+      "priority": "high",
+      "notes": "pilot round 1",
+      "ref_images": [],
+      "aspect": "1:1",
+      "delivery_px": 2048,
+      "format": "jpeg",
+      "stem": "f4t-066__hummus-wrap",
+      "raw_file": "raw/f4t-066__hummus-wrap.png",
+      "out_file": "out/f4t-066__hummus-wrap.jpg",
+      "prompt": "Use case: food-hero\nAsset type: menu photo - Healthy Wraps\nPrimary request: Roasted eggplant, zucchini, capsicum and carrot with hummus in a tortilla, hummus pot on the side\nScene/backdrop: plain white or light-wood table, clean neutral background, no props beyond the dish and its own sides\nSubject: Hummus Wrap - the food or drink exactly as described, with the correct portion, container and garnish\nStyle/medium: natural daylight food photography, honest home-kitchen plating\nComposition/framing: square 1:1 format\nLighting/mood: soft daylight from the side-left with gentle fill, natural shadows\nMood: honest, fresh, home-kitchen made - appetizing without looking staged\nColor palette: fresh natural colours, plenty of green and red accents on white crockery, light wood and white surfaces\nMaterials/textures: real food texture: crumb and crust, glossy sauce, fresh herbs, natural moisture\nConstraints: the dish exactly as the kitchen serves it (ingredients, portion, plating); fresh and appetizing at first glance; correct portion and garnish exactly as described; visible food texture (crumb, crust, glossy sauce, fresh herbs); steam only on hot dishes; photographic realism with one consistent light direction; colour, shape and proportions true to the reference image\nAvoid: ingredients that are not in the description; extra sides; restaurant logo or text; wilted, dry or plastic-looking food; fake or misplaced garnish; cluttered props; messy spills; watermark or caption bar; misspelled, invented or unapproved text or claims; unapproved health, nutrition or certification claims; HDR look, heavy vignette or oversaturated colour",
+      "lint": [
+        "prompt is 1641 chars - trim the description, long prompts dilute the important parts"
+      ]
+    },
+    {
+      "id": "F4T-079",
+      "source_id": "F4T-079",
+      "item_name": "Swedish Pancakes",
+      "use_case": "food-hero",
+      "use_case_requested": "food-hero",
+      "priority": "high",
+      "notes": "pilot round 1",
+      "ref_images": [],
+      "aspect": "1:1",
+      "delivery_px": 2048,
+      "format": "jpeg",
+      "stem": "f4t-079__swedish-pancakes",
+      "raw_file": "raw/f4t-079__swedish-pancakes.png",
+      "out_file": "out/f4t-079__swedish-pancakes.jpg",
+      "prompt": "Use case: food-hero\nAsset type: menu photo - Waffles / Oats\nPrimary request: Thin folded pancakes topped with berry sauce, cream and fresh mint\nScene/backdrop: plain white or light-wood table, clean neutral background, no props beyond the dish and its own sides\nSubject: Swedish Pancakes - the food or drink exactly as described, with the correct portion, container and garnish\nStyle/medium: natural daylight food photography, honest home-kitchen plating\nComposition/framing: square 1:1 format\nLighting/mood: soft daylight from the side-left with gentle fill, natural shadows\nMood: honest, fresh, home-kitchen made - appetizing without looking staged\nColor palette: fresh natural colours, plenty of green and red accents on white crockery, light wood and white surfaces\nMaterials/textures: real food texture: crumb and crust, glossy sauce, fresh herbs, natural moisture\nConstraints: the dish exactly as the kitchen serves it (ingredients, portion, plating); fresh and appetizing at first glance; correct portion and garnish exactly as described; visible food texture (crumb, crust, glossy sauce, fresh herbs); steam only on hot dishes; photographic realism with one consistent light direction; colour, shape and proportions true to the reference image\nAvoid: ingredients that are not in the description; extra sides; restaurant logo or text; wilted, dry or plastic-looking food; fake or misplaced garnish; cluttered props; messy spills; watermark or caption bar; misspelled, invented or unapproved text or claims; unapproved health, nutrition or certification claims; HDR look, heavy vignette or oversaturated colour",
+      "lint": [
+        "prompt is 1616 chars - trim the description, long prompts dilute the important parts"
+      ]
+    },
+    {
+      "id": "F4T-036",
+      "source_id": "F4T-036",
+      "item_name": "Caesar Salad",
+      "use_case": "food-hero",
+      "use_case_requested": "food-hero",
+      "priority": "high",
+      "notes": "pilot round 1; confirm with kitchen: current photo looks like a scoop; confirm it is sliced chicken",
+      "ref_images": [],
+      "aspect": "1:1",
+      "delivery_px": 2048,
+      "format": "jpeg",
+      "stem": "f4t-036__caesar-salad",
+      "raw_file": "raw/f4t-036__caesar-salad.png",
+      "out_file": "out/f4t-036__caesar-salad.jpg",
+      "prompt": "Use case: food-hero\nAsset type: menu photo - Salads\nPrimary request: Roasted chicken breast, bacon, olives, parmesan, tomato, onion and cucumber over romaine with Caesar dressing\nScene/backdrop: plain white or light-wood table, clean neutral background, no props beyond the dish and its own sides\nSubject: Caesar Salad - the food or drink exactly as described, with the correct portion, container and garnish\nStyle/medium: natural daylight food photography, honest home-kitchen plating\nComposition/framing: square 1:1 format\nLighting/mood: soft daylight from the side-left with gentle fill, natural shadows\nMood: honest, fresh, home-kitchen made - appetizing without looking staged\nColor palette: fresh natural colours, plenty of green and red accents on white crockery, light wood and white surfaces\nMaterials/textures: real food texture: crumb and crust, glossy sauce, fresh herbs, natural moisture\nConstraints: the dish exactly as the kitchen serves it (ingredients, portion, plating); fresh and appetizing at first glance; correct portion and garnish exactly as described; visible food texture (crumb, crust, glossy sauce, fresh herbs); steam only on hot dishes; photographic realism with one consistent light direction; colour, shape and proportions true to the reference image\nAvoid: ingredients that are not in the description; extra sides; restaurant logo or text; wilted, dry or plastic-looking food; fake or misplaced garnish; cluttered props; messy spills; watermark or caption bar; misspelled, invented or unapproved text or claims; unapproved health, nutrition or certification claims; HDR look, heavy vignette or oversaturated colour",
+      "lint": [
+        "prompt is 1647 chars - trim the description, long prompts dilute the important parts"
+      ]
+    },
+    {
+      "id": "F4T-002",
+      "source_id": "F4T-002",
+      "item_name": "California Breakfast Set",
+      "use_case": "food-hero",
+      "use_case_requested": "food-hero",
+      "priority": "high",
+      "notes": "pilot round 1; confirm with kitchen: how the eggs are served (shelled/broken), toast count",
+      "ref_images": [],
+      "aspect": "1:1",
+      "delivery_px": 2048,
+      "format": "jpeg",
+      "stem": "f4t-002__california-breakfast-set",
+      "raw_file": "raw/f4t-002__california-breakfast-set.png",
+      "out_file": "out/f4t-002__california-breakfast-set.jpg",
+      "prompt": "Use case: food-hero\nAsset type: menu photo - Breakfast Set\nPrimary request: 1 chorizo sausage link, 2 poached eggs, fresh avocado, quinoa salad, sour-dough toast\nScene/backdrop: plain white or light-wood table, clean neutral background, no props beyond the dish and its own sides\nSubject: California Breakfast Set - the food or drink exactly as described, with the correct portion, container and garnish\nStyle/medium: natural daylight food photography, honest home-kitchen plating\nComposition/framing: square 1:1 format\nLighting/mood: soft daylight from the side-left with gentle fill, natural shadows\nMood: honest, fresh, home-kitchen made - appetizing without looking staged\nColor palette: fresh natural colours, plenty of green and red accents on white crockery, light wood and white surfaces\nMaterials/textures: real food texture: crumb and crust, glossy sauce, fresh herbs, natural moisture\nConstraints: the dish exactly as the kitchen serves it (ingredients, portion, plating); fresh and appetizing at first glance; correct portion and garnish exactly as described; visible food texture (crumb, crust, glossy sauce, fresh herbs); steam only on hot dishes; photographic realism with one consistent light direction; colour, shape and proportions true to the reference image\nAvoid: ingredients that are not in the description; extra sides; restaurant logo or text; wilted, dry or plastic-looking food; fake or misplaced garnish; cluttered props; messy spills; watermark or caption bar; misspelled, invented or unapproved text or claims; unapproved health, nutrition or certification claims; HDR look, heavy vignette or oversaturated colour",
+      "lint": [
+        "prompt is 1642 chars - trim the description, long prompts dilute the important parts"
+      ]
+    },
+    {
+      "id": "F4T-003",
+      "source_id": "F4T-003",
+      "item_name": "F4T Full English",
+      "use_case": "food-hero",
+      "use_case_requested": "food-hero",
+      "priority": "high",
+      "notes": "pilot round 1; confirm with kitchen: exact components and count of each",
+      "ref_images": [],
+      "aspect": "1:1",
+      "delivery_px": 2048,
+      "format": "jpeg",
+      "stem": "f4t-003__f4t-full-english",
+      "raw_file": "raw/f4t-003__f4t-full-english.png",
+      "out_file": "out/f4t-003__f4t-full-english.jpg",
+      "prompt": "Use case: food-hero\nAsset type: menu photo - Breakfast Set\nPrimary request: Full English breakfast; no black pudding - eggs, bacon, sausage, beans, tomato, mushrooms, toast\nScene/backdrop: plain white or light-wood table, clean neutral background, no props beyond the dish and its own sides\nSubject: F4T Full English - the food or drink exactly as described, with the correct portion, container and garnish\nStyle/medium: natural daylight food photography, honest home-kitchen plating\nComposition/framing: square 1:1 format\nLighting/mood: soft daylight from the side-left with gentle fill, natural shadows\nMood: honest, fresh, home-kitchen made - appetizing without looking staged\nColor palette: fresh natural colours, plenty of green and red accents on white crockery, light wood and white surfaces\nMaterials/textures: real food texture: crumb and crust, glossy sauce, fresh herbs, natural moisture\nConstraints: the dish exactly as the kitchen serves it (ingredients, portion, plating); fresh and appetizing at first glance; correct portion and garnish exactly as described; visible food texture (crumb, crust, glossy sauce, fresh herbs); steam only on hot dishes; photographic realism with one consistent light direction; colour, shape and proportions true to the reference image\nAvoid: ingredients that are not in the description; extra sides; restaurant logo or text; wilted, dry or plastic-looking food; fake or misplaced garnish; cluttered props; messy spills; watermark or caption bar; misspelled, invented or unapproved text or claims; unapproved health, nutrition or certification claims; HDR look, heavy vignette or oversaturated colour",
+      "lint": [
+        "prompt is 1645 chars - trim the description, long prompts dilute the important parts"
+      ]
+    },
+    {
+      "id": "F4T-067",
+      "source_id": "F4T-067",
+      "item_name": "Mushroom Burger",
+      "use_case": "food-hero",
+      "use_case_requested": "food-hero",
+      "priority": "medium",
+      "notes": "pilot round 1",
+      "ref_images": [],
+      "aspect": "1:1",
+      "delivery_px": 2048,
+      "format": "jpeg",
+      "stem": "f4t-067__mushroom-burger",
+      "raw_file": "raw/f4t-067__mushroom-burger.png",
+      "out_file": "out/f4t-067__mushroom-burger.jpg",
+      "prompt": "Use case: food-hero\nAsset type: menu photo - Burger / Bagel\nPrimary request: Shiitake mushroom patty with vegan cheese, yellow mustard and ketchup in a seeded bun, with fries\nScene/backdrop: plain white or light-wood table, clean neutral background, no props beyond the dish and its own sides\nSubject: Mushroom Burger - the food or drink exactly as described, with the correct portion, container and garnish\nStyle/medium: natural daylight food photography, honest home-kitchen plating\nComposition/framing: square 1:1 format\nLighting/mood: soft daylight from the side-left with gentle fill, natural shadows\nMood: honest, fresh, home-kitchen made - appetizing without looking staged\nColor palette: fresh natural colours, plenty of green and red accents on white crockery, light wood and white surfaces\nMaterials/textures: real food texture: crumb and crust, glossy sauce, fresh herbs, natural moisture\nConstraints: the dish exactly as the kitchen serves it (ingredients, portion, plating); fresh and appetizing at first glance; correct portion and garnish exactly as described; visible food texture (crumb, crust, glossy sauce, fresh herbs); steam only on hot dishes; photographic realism with one consistent light direction; colour, shape and proportions true to the reference image\nAvoid: ingredients that are not in the description; extra sides; restaurant logo or text; wilted, dry or plastic-looking food; fake or misplaced garnish; cluttered props; messy spills; watermark or caption bar; misspelled, invented or unapproved text or claims; unapproved health, nutrition or certification claims; HDR look, heavy vignette or oversaturated colour",
+      "lint": [
+        "prompt is 1646 chars - trim the description, long prompts dilute the important parts"
+      ]
+    },
+    {
+      "id": "F4T-091",
+      "source_id": "F4T-091",
+      "item_name": "Carnitas Tacos",
+      "use_case": "food-hero",
+      "use_case_requested": "food-hero",
+      "priority": "medium",
+      "notes": "pilot round 1",
+      "ref_images": [],
+      "aspect": "1:1",
+      "delivery_px": 2048,
+      "format": "jpeg",
+      "stem": "f4t-091__carnitas-tacos",
+      "raw_file": "raw/f4t-091__carnitas-tacos.png",
+      "out_file": "out/f4t-091__carnitas-tacos.jpg",
+      "prompt": "Use case: food-hero\nAsset type: menu photo - Snacks Shareable\nPrimary request: 3 tortillas with spicy smoky carnitas pork, fresh pineapple, parmesan and crema\nScene/backdrop: plain white or light-wood table, clean neutral background, no props beyond the dish and its own sides\nSubject: Carnitas Tacos - the food or drink exactly as described, with the correct portion, container and garnish\nStyle/medium: natural daylight food photography, honest home-kitchen plating\nComposition/framing: square 1:1 format\nLighting/mood: soft daylight from the side-left with gentle fill, natural shadows\nMood: honest, fresh, home-kitchen made - appetizing without looking staged\nColor palette: fresh natural colours, plenty of green and red accents on white crockery, light wood and white surfaces\nMaterials/textures: real food texture: crumb and crust, glossy sauce, fresh herbs, natural moisture\nConstraints: the dish exactly as the kitchen serves it (ingredients, portion, plating); fresh and appetizing at first glance; correct portion and garnish exactly as described; visible food texture (crumb, crust, glossy sauce, fresh herbs); steam only on hot dishes; photographic realism with one consistent light direction; colour, shape and proportions true to the reference image\nAvoid: ingredients that are not in the description; extra sides; restaurant logo or text; wilted, dry or plastic-looking food; fake or misplaced garnish; cluttered props; messy spills; watermark or caption bar; misspelled, invented or unapproved text or claims; unapproved health, nutrition or certification claims; HDR look, heavy vignette or oversaturated colour",
+      "lint": [
+        "prompt is 1629 chars - trim the description, long prompts dilute the important parts"
+      ]
+    },
+    {
+      "id": "F4T-025",
+      "source_id": "F4T-025",
+      "item_name": "Grilled Cheese",
+      "use_case": "food-hero",
+      "use_case_requested": "food-hero",
+      "priority": "medium",
+      "notes": "pilot round 1; confirm with kitchen: side items",
+      "ref_images": [],
+      "aspect": "1:1",
+      "delivery_px": 2048,
+      "format": "jpeg",
+      "stem": "f4t-025__grilled-cheese",
+      "raw_file": "raw/f4t-025__grilled-cheese.png",
+      "out_file": "out/f4t-025__grilled-cheese.jpg",
+      "prompt": "Use case: food-hero\nAsset type: menu photo - Sandwich\nPrimary request: Cheddar and mozzarella blend grilled between sourdough slices, cut diagonally\nScene/backdrop: plain white or light-wood table, clean neutral background, no props beyond the dish and its own sides\nSubject: Grilled Cheese - the food or drink exactly as described, with the correct portion, container and garnish\nStyle/medium: natural daylight food photography, honest home-kitchen plating\nComposition/framing: square 1:1 format\nLighting/mood: soft daylight from the side-left with gentle fill, natural shadows\nMood: honest, fresh, home-kitchen made - appetizing without looking staged\nColor palette: fresh natural colours, plenty of green and red accents on white crockery, light wood and white surfaces\nMaterials/textures: real food texture: crumb and crust, glossy sauce, fresh herbs, natural moisture\nConstraints: the dish exactly as the kitchen serves it (ingredients, portion, plating); fresh and appetizing at first glance; correct portion and garnish exactly as described; visible food texture (crumb, crust, glossy sauce, fresh herbs); steam only on hot dishes; photographic realism with one consistent light direction; colour, shape and proportions true to the reference image\nAvoid: ingredients that are not in the description; extra sides; restaurant logo or text; wilted, dry or plastic-looking food; fake or misplaced garnish; cluttered props; messy spills; watermark or caption bar; misspelled, invented or unapproved text or claims; unapproved health, nutrition or certification claims; HDR look, heavy vignette or oversaturated colour",
+      "lint": [
+        "prompt is 1619 chars - trim the description, long prompts dilute the important parts"
+      ]
+    },
+    {
+      "id": "F4T-094",
+      "source_id": "F4T-094",
+      "item_name": "Avocado Fries",
+      "use_case": "food-hero",
+      "use_case_requested": "food-hero",
+      "priority": "medium",
+      "notes": "pilot round 1",
+      "ref_images": [],
+      "aspect": "1:1",
+      "delivery_px": 2048,
+      "format": "jpeg",
+      "stem": "f4t-094__avocado-fries",
+      "raw_file": "raw/f4t-094__avocado-fries.png",
+      "out_file": "out/f4t-094__avocado-fries.jpg",
+      "prompt": "Use case: food-hero\nAsset type: menu photo - Snacks Shareable\nPrimary request: Avocado wedges in panko, fried golden, served with garlic aioli\nScene/backdrop: plain white or light-wood table, clean neutral background, no props beyond the dish and its own sides\nSubject: Avocado Fries - the food or drink exactly as described, with the correct portion, container and garnish\nStyle/medium: natural daylight food photography, honest home-kitchen plating\nComposition/framing: square 1:1 format\nLighting/mood: soft daylight from the side-left with gentle fill, natural shadows\nMood: honest, fresh, home-kitchen made - appetizing without looking staged\nColor palette: fresh natural colours, plenty of green and red accents on white crockery, light wood and white surfaces\nMaterials/textures: real food texture: crumb and crust, glossy sauce, fresh herbs, natural moisture\nConstraints: the dish exactly as the kitchen serves it (ingredients, portion, plating); fresh and appetizing at first glance; correct portion and garnish exactly as described; visible food texture (crumb, crust, glossy sauce, fresh herbs); steam only on hot dishes; photographic realism with one consistent light direction; colour, shape and proportions true to the reference image\nAvoid: ingredients that are not in the description; extra sides; restaurant logo or text; wilted, dry or plastic-looking food; fake or misplaced garnish; cluttered props; messy spills; watermark or caption bar; misspelled, invented or unapproved text or claims; unapproved health, nutrition or certification claims; HDR look, heavy vignette or oversaturated colour",
+      "lint": [
+        "prompt is 1612 chars - trim the description, long prompts dilute the important parts"
+      ]
+    }
+  ]
+}

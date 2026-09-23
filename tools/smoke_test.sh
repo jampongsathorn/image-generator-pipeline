@@ -62,6 +62,14 @@ rm -rf rounds/smoke-bad
 check "template EXAMPLE row is skipped by default" bash -c "
 python3 tools/igp.py plan --requests templates/requests.csv --round-id smoke-example 2>&1 | grep -q 'example row'"
 rm -rf rounds/smoke-example
+check "intake prefers requests.csv when the drop folder has several sheets" bash -c "
+rm -rf /tmp/igp-intake && mkdir -p /tmp/igp-intake
+printf 'id,category,item_name,price_thb,mark\nA1,Salads,Inventory Row,199,redo\n' > /tmp/igp-intake/inventory.csv
+printf 'id,item_name,use_case,description\nR1,Requested Row,product-mockup,a dish on a plate\n' > /tmp/igp-intake/requests.csv
+python3 tools/igp.py intake --source /tmp/igp-intake --round-id smoke-intake >/dev/null 2>&1
+grep -q 'Requested Row' rounds/smoke-intake/requests.csv &&
+  ! grep -q 'Inventory Row' rounds/smoke-intake/requests.csv"
+rm -rf rounds/smoke-intake /tmp/igp-intake
 
 step "Round mechanics"
 if command -v convert >/dev/null; then

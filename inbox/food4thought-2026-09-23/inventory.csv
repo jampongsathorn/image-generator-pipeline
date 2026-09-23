@@ -1,0 +1,98 @@
+id,category,item_name,price_thb,mark,description_seen,confirm_with_kitchen
+F4T-001,Breakfast Set,Happy Vegan Breakfast Set,329,redo,"Vegan eggs, fresh avocado, crispy potatoes, fruit salad, sour-dough toast",portion of each component; what 'vegan eggs' is made of
+F4T-002,Breakfast Set,California Breakfast Set,379,redo,"1 chorizo sausage link, 2 poached eggs, fresh avocado, quinoa salad, sour-dough toast","how the eggs are served (shelled/broken), toast count"
+F4T-003,Breakfast Set,F4T Full English,389,redo,"Full English breakfast; no black pudding - eggs, bacon, sausage, beans, tomato, mushrooms, toast",exact components and count of each
+F4T-004,Breakfast Set,Country Momma Breakfast Set,389,redo,"2 pork sausage, 2 made-to-order eggs with cheddar, crispy potatoes, broccoli",see the current photo
+F4T-005,Breakfast Set,Dixie Democrat Breakfast Set,389,redo,"Smoked ham, 2 made-to-order eggs topped with paprika, fried apples, hash browns",see the current photo
+F4T-006,Breakfast Set,Mediterranean Breakfast set,389,redo,"2 poached eggs topped with feta, roasted veggies, fresh bruschetta","bread type, dip selection"
+F4T-007,Breakfast Set,Daddy Yanky Breakfast Set,359,redo_na,unavailable,if it returns
+F4T-008,Eggs Brunch,Bruschetta Toast,219,redo,"Sourdough toast topped with poached eggs, chopped tomato bruschetta and balsamic glaze",poached or scrambled
+F4T-009,Eggs Brunch,Farmer Omelet,249,good,"3 eggs, potato, carrot, capsicum, onion, garlic and cheddar, served as a folded omelet",
+F4T-010,Eggs Brunch,Green Omelet,249,redo,"3 eggs, mushroom, capsicum, zucchini, broccoli and radish, folded omelet",side items
+F4T-011,Eggs Brunch,Garden Medley,249,redo,"3 eggs poached in a medley of mushrooms, capsicum and zucchini","container (skillet?), side"
+F4T-012,Eggs Brunch,Israeli Shashouka,279,redo,"2 eggs poached in tomato sauce with mushrooms, peppers, olives and garlic",bread served alongside
+F4T-013,Eggs Brunch,Classic Eggs Benedict,299,redo,"2 poached eggs with smoked ham on toasted bread, glossy hollandaise, side greens and tomato",side items; bread type
+F4T-014,Eggs Brunch,Smoked Ham Avocado Omelet,299,redo,"Smoked ham, avocado, onion, cherry tomato and cheddar omelet",side items
+F4T-015,Eggs Brunch,Sausage Omelet,299,redo,"3 eggs, sausage, apple, red onion, kale, feta and sun-dried tomatoes",side items
+F4T-016,Eggs Brunch,Huevos Rancheros,289,redo_na,unavailable,
+F4T-017,Eggs Brunch,Moroccan Eggs,239,redo_na,unavailable,
+F4T-018,Sandwich,The Bacon Egg Sandwich,219,good,"Bacon, egg, cheddar and tomato with chili mayo on a ciabatta roll",
+F4T-019,Sandwich,The Vegan Cheese Steak,259,redo,"Vegan faux mushroom meat with sweet peppers, onions, garlic and cilantro in a roll","cheese substitute, garnish"
+F4T-020,Sandwich,Tuscan Tuna Sandwich,269,redo,"Tuna bound with lemon, olive, red onion, radish and garlic, ciabatta","garnish, side"
+F4T-021,Sandwich,Smoked Ham Sandwich,279,redo,"Smoked ham with apple, brie and house mustard on ciabatta",side items
+F4T-022,Sandwich,Pesto Sandwich,279,redo,"Basil pesto with roasted chicken, roasted sweet peppers and mozzarella, toasted",side items
+F4T-023,Sandwich,The Smoked Beef Sandwich,319,redo,"House smoked beef, mozzarella cheese and roasted capsicum",side items
+F4T-024,Sandwich,Chicken & Brie Sandwich,259,redo_na,unavailable,
+F4T-025,Sandwich,Grilled Cheese,169,redo,"Cheddar and mozzarella blend grilled between sourdough slices, cut diagonally",side items
+F4T-026,Sandwich,Avocado Egg Sandwich,199,redo,"Avocado, egg and cheese on ciabatta",side items
+F4T-027,Sandwich,Sun-dried Tomato Toast,269,good,"Sourdough toast with poached or scrambled eggs, garlic butter and sun-dried tomato",
+F4T-028,Salads,The Deconstructed Spring Roll Salad,249,redo,"Fried tofu, crispy noodles, peanuts, cucumber, bell pepper and carrot over greens",dressing
+F4T-029,Salads,Avocado Salad,249,redo,"Avocado-lime dressing with heaps of avocado, fresh fruit and mixed leaves",fruit used
+F4T-030,Salads,Turmeric Chicken Salad,259,redo,"Chicken salad with raisins, cashew nut, sweet pepper, red onion, scallion and cilantro",
+F4T-031,Salads,Salad Fresh plate,259,good,3 small portions of the grain/veggie salad choices,
+F4T-032,Salads,Burmese Tea Leaf Salad,229,good,"Pickled tea leaves, cucumber, tomato and crispy bits over lettuce",
+F4T-033,Salads,Broccoli Salad,239,redo,"Broccoli, carrot, radish, parsley, red onion, cranberry and sunflower seeds",
+F4T-034,Salads,Quinoa Salad,239,redo,"Quinoa, mango, black bean, cashew, raisin, capsicum, red onion and cilantro",
+F4T-035,Salads,Tabouleh Salad,239,good,"Parsley, mint, barley, cucumber, tomato and radish",
+F4T-036,Salads,Caesar Salad,299,redo,"Roasted chicken breast, bacon, olives, parmesan, tomato, onion and cucumber over romaine with Caesar dressing",current photo looks like a scoop; confirm it is sliced chicken
+F4T-037,Salads,Asian Cobb,319,good,Asian rendering of the classic American salad with chicken and boiled egg,
+F4T-038,Salads,Harvest Salad,319,good,"Chicken, bacon, pumpkin, apple, dried fruit, nuts and cheddar with balsamic-honey dressing",
+F4T-039,Salads,Citrus Chicken Salad,249,redo_na,unavailable,
+F4T-040,Salads,Warm Kale Salad,269,good,"Curly kale, brie cheese, slivered almonds and dried cranberries",
+F4T-041,Salads,Mango Quinoa Salad,269,redo,"Feta cheese, mango, quinoa, avocado and cherry tomato",
+F4T-042,Salads,Protein plate,289,good,Roasted chicken with a choice of 2 grain/veggie salads,
+F4T-043,Salads,Curried Chicken Salad,289,redo,"Mild and sweet curried chicken with dried fruit, nuts, fresh mango and mixed lettuce",
+F4T-044,Salads,Chickpea Salad,189,redo,"Chickpea, carrot, cabbage, raisin, ginger, sesame, mint and masala",
+F4T-045,Salads,The Burmese Daikon Salad,199,good,"Pickled daikon radish, red onion, garlic, cilantro, raisin, cashew nut and peanuts",
+F4T-046,Salads,Sweet Potato Salad,199,redo,"Sweet potato, capsicum, celery, chili, scallion and sesame seeds",
+F4T-047,Salads,Moroccan Carrot Salad,199,redo,"Carrot, chickpea, almond, raisin, mint and cilantro",
+F4T-048,Pasta,Rustic Bolognese,359,redo,"Tomato Bolognese sauce with Italian sausage, onion, carrot and celery over pasta, with garlic bread",
+F4T-049,Pasta,Cajun Fettuccine Pasta,369,good,"Spicy roasted chili cream with fettuccine, chicken, mushroom, kale, onion and garlic",
+F4T-050,Pasta,Conchiglie & Cheese,299,redo,Large shell pasta in a rich cashew cheese sauce,
+F4T-051,Pasta,Spinach & Cheese,319,redo,"Bacon, spinach, mozzarella cheese, onion and cream",
+F4T-052,Pasta,Butternut Squash Ravioli,319,redo,"Homemade ravioli filled with roasted butternut squash, tossed in sauce with cherry tomato",sauce
+F4T-053,Pasta,Italian Sausage Ravioli,319,good,"Ravioli with house Italian sausage (beef and pork), spinach, ricotta and parmesan",
+F4T-054,Pasta,Desert Fire Pasta,255,good,"Spicy roasted chili cream with fettuccine, chicken, mushroom, kale, onion and garlic",
+F4T-055,Soups,Tomato & Roasted Red Pepper Soup,229,redo,"Roasted red pepper and tomato soup with cream or coconut milk, served with toast",
+F4T-056,Soups,Butternut Squash Soup,229,good,"Butternut squash soup with cream or coconut milk, swirl of cream, served with toast",
+F4T-057,Soups,Potato & ham soup,229,good,"Creamy potato soup with cream, cheese and smoked ham, served with toast",
+F4T-058,Soups,Minnesota Wild-Rice Soup,239,redo,"Creamy soup with chicken, smoked ham and black rice, served with toast",
+F4T-059,Healthy Wraps,Falafel Wrap,239,redo,"House falafel with tabbouleh salad in a tortilla, served with tzatziki, cut diagonally",
+F4T-060,Healthy Wraps,Chicken Cranberry Wrap,249,good,"Pulled chicken breast, cranberry, almond and romaine with a yogurt-based dressing, in a tortilla",
+F4T-061,Healthy Wraps,Fish and Mango Wrap,269,redo,Fried tilapia with mango salsa and a hint of habanero in a tortilla,
+F4T-062,Healthy Wraps,Mexican Wrap,389,good,"Chicken, black beans, roasted veggies, rice, cheddar and pickled jalapenos in a tortilla",
+F4T-063,Healthy Wraps,Breakfast Wrap,219,redo,"Eggs, cumin spiced fried potatoes and sour cream wrapped in a tortilla",
+F4T-064,Healthy Wraps,Burmese Wrap,219,good,"Spicy fermented tea leaf salad rolled in a tortilla, cut diagonally",
+F4T-065,Healthy Wraps,Avocado Wrap,229,redo,"Avocado, fresh veggies, cheddar cheese and avo-lime dressing in a tortilla",
+F4T-066,Healthy Wraps,Hummus Wrap,239,redo,"Roasted eggplant, zucchini, capsicum and carrot with hummus in a tortilla, hummus pot on the side",
+F4T-067,Burger / Bagel,Mushroom Burger,279,redo,"Shiitake mushroom patty with vegan cheese, yellow mustard and ketchup in a seeded bun, with fries",
+F4T-068,Burger / Bagel,Chicken Grapow Burger,269,redo,"Spicy chicken patty with a fried egg, cheddar cheese and crispy fried basil in a bun",
+F4T-069,Burger / Bagel,The Pulled Pork Burger,279,redo,House-made smoked pulled pork with house BBQ sauce and cheddar in a bun,
+F4T-070,Burger / Bagel,Black & Blue Burger,329,good,"Chuck and brisket patty with bleu cheese, bacon and roasted chilli-mango in a bun",
+F4T-071,Burger / Bagel,Roasted Chicken Burger,215,good,"Grilled chicken breast with roquette, fresh tomato, sun-dried tomato and mozzarella in a bun",
+F4T-072,Burger / Bagel,Tomato Basil Bagel,199,redo_na,unavailable,
+F4T-073,Burger / Bagel,Cucumber Mint Bagel,199,redo_na,unavailable,
+F4T-074,Burger / Bagel,PB & J Bagel,199,redo_na,unavailable,
+F4T-075,Burger / Bagel,Duck Burger,289,redo_na,unavailable,
+F4T-076,Waffles / Oats,Sausage & Waffles,289,redo,"Waffle with two house pork sausages, mango and orange slices",
+F4T-077,Waffles / Oats,Chicken & Waffle,329,redo,Waffle with chicken in a sweet and spicy sauce and a whipped orange infusion,
+F4T-078,Waffles / Oats,Cajun Shrimp & Grits,349,good,Corn porridge (grits) with cajun shrimp and herb garnish,
+F4T-079,Waffles / Oats,Swedish Pancakes,249,redo,"Thin folded pancakes topped with berry sauce, cream and fresh mint",
+F4T-080,Waffles / Oats,Oats Porridge,229,redo,"Oat porridge with milk, masala chai or coconut milk, topped with fruit and seeds",
+F4T-081,Waffles / Oats,Chia Pudding,229,redo,Chia seed and coconut milk pudding with mixed fresh fruit and dried fruit,
+F4T-082,Waffles / Oats,Muesli,229,redo,"Muesli topped with mixed fresh fruits, dried fruit and nuts",
+F4T-083,Waffles / Oats,Buttermilk Pancakes,229,redo,"Short stack of buttermilk pancakes with butter, banana and maple syrup",toppings
+F4T-084,Waffles / Oats,French Toast,249,redo,"Sourdough French toast in custard with butter and sour cream, fruit on the side",
+F4T-085,Waffles / Oats,Sweet potato & Quinoa Waffle,249,redo,"Waffle filled with sweet potato, quinoa, rice and curly kale, topped with cream and sliced fruit",
+F4T-086,Waffles / Oats,Savory Waffle,289,redo,"Waffle with fried egg, bacon, mango chutney, brie, parmesan and sour cream",
+F4T-087,Snacks Shareable,Tilapia Ceviche,269,redo,"Marinated raw tilapia with a Thai twist, chopped herbs and lime, served with crackers",
+F4T-088,Snacks Shareable,Chicken Nachos,279,good,"Tortilla chips with chicken, black beans, roasted veggies, cheddar and fresh onion, salsa on the side",
+F4T-089,Snacks Shareable,Chicken Quesadillas,279,good,"Grilled quesadilla with chicken, tomato, onion and cilantro, mozzarella and sour cream",
+F4T-090,Snacks Shareable,Black Bean Quesadilla,279,redo,"Quesadilla with black beans, fresh tomato, onion, cilantro and mozzarella",
+F4T-091,Snacks Shareable,Carnitas Tacos,279,redo,"3 tortillas with spicy smoky carnitas pork, fresh pineapple, parmesan and crema",
+F4T-092,Snacks Shareable,Fish Tacos,289,redo,"3 tortillas with fried fish and cabbage, guacamole and spicy sauce",
+F4T-093,Snacks Shareable,Chicken Wings,219,redo_na,unavailable,
+F4T-094,Snacks Shareable,Avocado Fries,129,redo,"Avocado wedges in panko, fried golden, served with garlic aioli",
+F4T-095,Snacks Shareable,Fresh Cut Veggies & Dip,199,redo,"Fresh cut vegetables with red-pepper hummus and garlic hummus, toasted bread",
+F4T-096,Snacks Shareable,Chip & Salsa,219,redo,House tortilla chips with salsa and guacamole,
+F4T-097,Snacks Shareable,Black Bean Dip,259,good,"Warm black bean puree topped with mozzarella, served with tortilla chips",

@@ -12,6 +12,7 @@ Built around the environment's real limits:
 | Image generator | Arena's built-in tool | no OpenAI API, no API key, ever |
 | Requests | one row = one image | the sheet is the contract; prompts are generated, reviewable text |
 
+🇹🇭 **วิธีใช้ภาษาไทย: [`docs/QUICKSTART-TH.md`](docs/QUICKSTART-TH.md)** ·
 📄 **Daily procedure: [`docs/DAILY-FLOW.md`](docs/DAILY-FLOW.md)** (TH + EN) ·
 🤖 **Agent rules: [`AGENTS.md`](AGENTS.md)** ·
 🎯 **Skill: [`skills/arena-imagegen/SKILL.md`](skills/arena-imagegen/SKILL.md)**
@@ -115,7 +116,7 @@ skills/arena-imagegen/    the skill: SKILL.md, references/, NOTICE.md
 rounds/<id>/              requests.csv, plan.json, plan.md, refs/, raw/, out/, review/
 inbox/<batch>/            drop zone for new requests
 archive/                  zipped delivered rounds
-docs/                     DAILY-FLOW.md (TH/EN), SETUP.md
+docs/                     QUICKSTART-TH.md (Thai one-pager), DAILY-FLOW.md (TH/EN), SETUP.md
 ```
 
 ## Setup

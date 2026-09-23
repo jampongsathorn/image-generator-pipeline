@@ -1,7 +1,8 @@
 # Setup notes
 
 How this pipeline is wired, what it depends on, and how to refresh it later.
-For daily operation see `docs/DAILY-FLOW.md`; for agent rules see `AGENTS.md`.
+For daily operation see `docs/DAILY-FLOW.md` (or the Thai one-pager `docs/QUICKSTART-TH.md`);
+for agent rules see `AGENTS.md`.
 
 ## What this setup is
 

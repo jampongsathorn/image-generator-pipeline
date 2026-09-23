@@ -2,6 +2,8 @@
 
 Bilingual quickstart. English first, Thai summary at the end. 🇹🇭
 
+> อยากได้ฉบับภาษาไทยล้วน ๆ แบบรวบรัด: [`QUICKSTART-TH.md`](QUICKSTART-TH.md)
+
 ---
 
 ## For data entry (คนกรอกข้อมูล)

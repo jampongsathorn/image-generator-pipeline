@@ -12,6 +12,7 @@ Built around the environment's real limits:
 | Image generator | Arena's built-in tool | no OpenAI API, no API key, ever |
 | Requests | one row = one image | the sheet is the contract; prompts are generated, reviewable text |
 
+👥 **แชร์ให้ทีม / Team onboarding: [`docs/TEAM-ONBOARDING.md`](docs/TEAM-ONBOARDING.md)** ·
 🇹🇭 **วิธีใช้ภาษาไทย: [`docs/QUICKSTART-TH.md`](docs/QUICKSTART-TH.md)** ·
 📄 **Daily procedure: [`docs/DAILY-FLOW.md`](docs/DAILY-FLOW.md)** (TH + EN) ·
 🤖 **Agent rules: [`AGENTS.md`](AGENTS.md)** ·
@@ -39,6 +40,9 @@ BUDGET    python3 tools/igp.py budget
 ## Quickstart
 
 ```bash
+# 0. confirm this session is ready (python, image engine, font, templates)
+python3 tools/igp.py doctor
+
 # 1. data entry: one row per image + the reference photos
 mkdir -p inbox/2026-09-24-catalogue && cp templates/requests.csv inbox/2026-09-24-catalogue/
 #    edit requests.csv, drop reference images into the same folder
@@ -116,7 +120,7 @@ skills/arena-imagegen/    the skill: SKILL.md, references/, NOTICE.md
 rounds/<id>/              requests.csv, plan.json, plan.md, refs/, raw/, out/, review/
 inbox/<batch>/            drop zone for new requests
 archive/                  zipped delivered rounds
-docs/                     QUICKSTART-TH.md (Thai one-pager), DAILY-FLOW.md (TH/EN), SETUP.md
+docs/                     TEAM-ONBOARDING.md, QUICKSTART-TH.md (Thai one-pager), DAILY-FLOW.md (TH/EN), SETUP.md
 ```
 
 ## Setup

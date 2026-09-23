@@ -67,6 +67,7 @@ must not be used here.
 ## Verification checklist
 
 ```bash
+python3 tools/igp.py doctor                         # session readiness (engine, font, templates)
 python3 -m py_compile tools/igp.py                  # syntax
 python3 tools/igp.py --help | head -30              # CLI wired up
 python3 tools/igp.py plan --requests templates/requests.example.csv \
@@ -74,6 +75,8 @@ python3 tools/igp.py plan --requests templates/requests.example.csv \
 python3 tools/igp.py budget                         # workspace guard works
 python3 tools/igp.py sheet --round rounds/<id>      # labels render (font present)
 ```
+
+All of the above also run in CI (`.github/workflows/validate.yml`) on every push and pull request.
 
 A clean smoke test of the whole loop, without spending generation slots, uses synthesized inputs:
 

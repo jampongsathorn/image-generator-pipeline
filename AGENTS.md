@@ -31,6 +31,17 @@ Before any image-related work in this repo, read:
 7. **Filenames come from `plan.json`.** Do not rename; `optimize`, `verify` and `deliver` depend on
    the plan → raw → out linkage.
 
+## Session start (do this first)
+
+```bash
+python3 tools/igp.py doctor          # python, image engine, font, templates
+python3 tools/check_templates.py     # recipe/brand/plan sanity
+```
+
+If `doctor` reports NOT ready and no image engine exists, install one:
+`pip install --break-system-packages Pillow` (works without root), or `apt-get install -y imagemagick`.
+Do not start a round without an image engine: optimize/sheet/verify all need it.
+
 ## Command reference
 
 ```bash
@@ -67,6 +78,8 @@ rounds/<id>/              one round: requests.csv, plan.*, refs/, raw/, out/, re
 inbox/<batch>/            where data entry drops a sheet + references
 archive/                  zipped delivered rounds (kept out of the working tree)
 docs/DAILY-FLOW.md        the human procedure (TH/EN)
+docs/TEAM-ONBOARDING.md   how teammates connect a session and follow this skill (TH/EN)
+docs/QUICKSTART-TH.md     Thai quickstart one-pager
 docs/SETUP.md             how this was set up and how to refresh it
 ```
 

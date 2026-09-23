@@ -8,6 +8,7 @@ Built for Arena Agent Mode batch image work where the hard limits are:
 
 Subcommands
 -----------
+  doctor      check this session is ready (python, image engine, font, templates)
   new-round   scaffold a fresh round folder (requests.csv + folders + HOWTO)
   plan        read a request sheet -> build prompts -> split into rounds of <=N images
   optimize    compress/resize raw generations into delivery masters (budget guard)
@@ -230,8 +231,8 @@ class Engine:
                 self.magick = None
                 self.im6_convert = None
             except ModuleNotFoundError:
-                die("engine 'pillow' requested but Pillow is not installed "
-                    "(pip install --break-system-packages Pillow)")
+                die("engine 'pillow' requested but Pillow is not installed\n"
+                    "    pip install --break-system-packages Pillow")
 
     @property
     def name(self) -> str:
@@ -584,6 +585,42 @@ def plan_item(row: dict, recipes: dict, brand: dict, brand_name: str, variant: i
 # --------------------------------------------------------------------------- #
 # commands
 # --------------------------------------------------------------------------- #
+def engine_hint() -> str:
+    return ("no image engine available - install one of:\n"
+            "    pip install --break-system-packages Pillow        (works in a bare Arena session)\n"
+            "    apt-get install -y imagemagick                    (needs root; enables montage labels)")
+
+
+def cmd_doctor(args) -> int:
+    """Environment readiness report for a fresh session - run this first."""
+    engine = Engine("auto")
+    font = find_font()
+    print("\nEnvironment")
+    print(f"  python      : {sys.version.split()[0]}")
+    print(f"  image engine: {engine.name}"
+          + ("" if engine.name != "none" else "   <- " + engine_hint().splitlines()[0]))
+    if engine.name == "none":
+        print("    " + engine_hint().splitlines()[-2].strip())
+        print("    " + engine_hint().splitlines()[-1].strip())
+    print(f"  sheet font  : {font or 'not found (contact sheets render without labels)'}")
+    print(f"  templates   : {TEMPLATES / 'recipes.json'}")
+    print(f"  workspace   : {REPO}")
+    problems: list[str] = []
+    if engine.name == "none":
+        problems.append(engine_hint())
+    if not (TEMPLATES / "recipes.json").exists() or not (TEMPLATES / "brand.json").exists():
+        problems.append(f"templates missing under {TEMPLATES} - is this a full checkout of the repo?")
+    if not (ROUNDS).exists():
+        problems.append(f"no rounds/ folder - run `igp.py new-round` or `igp.py intake` first")
+    brand = load_brand(None) if (TEMPLATES / "brand.json").exists() else {}
+    if str(brand.get("brand_name", "")).startswith("YOUR BRAND"):
+        print("\n  note: templates/brand.json still has the placeholder brand name - set it once for your brand")
+    print("\nVerdict: " + ("ready - you can run a round" if not problems else "NOT ready"))
+    for problem in problems:
+        warn(problem)
+    return 1 if problems else 0
+
+
 def cmd_plan(args) -> int:
     requests_path = Path(args.requests)
     rows = read_requests(requests_path)
@@ -732,7 +769,7 @@ def find_raw(round_dir: Path, item: dict) -> Path | None:
 def cmd_optimize(args) -> int:
     engine = Engine(args.engine)
     if engine.name == "none":
-        die("no image engine available - install ImageMagick (or pip install --break-system-packages Pillow)")
+        die(engine_hint())
 
     jobs: list[tuple[Path, Path, dict]] = []
     if args.round:
@@ -1150,6 +1187,9 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--engine", default="auto", choices=["auto", "imagemagick", "pillow"],
                    help="image backend (default: auto-detect)")
     sub = p.add_subparsers(dest="cmd", required=True)
+
+    s = sub.add_parser("doctor", help="check this session is ready to run a round")
+    s.set_defaults(func=cmd_doctor)
 
     s = sub.add_parser("new-round", help="scaffold a round folder")
     s.add_argument("--round-id", default=f"{today()}-r01")

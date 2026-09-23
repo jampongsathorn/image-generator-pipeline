@@ -24,6 +24,7 @@ check() { # check <description> <command...>
 
 step "Environment"
 check "python3 available"        python3 -V
+check "doctor reports readiness"  "${IGP[@]}" doctor
 check "tools/igp.py compiles"    python3 -m py_compile tools/igp.py
 if command -v magick >/dev/null || command -v convert >/dev/null; then
   echo "  INFO image engine: $(command -v magick || command -v convert)"

@@ -1,0 +1,25 @@
+# ---- session workspace guard (Arena: 128MB / 10,000 files) -------------------
+# Generator output is transient: it is optimized into rounds/*/out/ and deleted.
+rounds/*/raw/
+rounds/*/work/
+rounds/*/tmp/
+**/*.tmp
+**/*.part
+
+# Delivery zips are rebuildable with `igp.py deliver`; keep them out of git history.
+rounds/*/review/*.zip
+archive/*.zip
+archive/*/
+
+# Scratch space for experiments, not for the pipeline
+scratch/
+work/
+tmp/
+
+# ---- local/tooling noise -----------------------------------------------------
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.DS_Store
+Thumbs.db

@@ -1,0 +1,60 @@
+{
+  "_schema": "igp-brand/v3",
+  "_notes": [
+    "The STYLE LOCK. Locked values are added to every prompt - this is what makes a batch of 10 images look like one shoot.",
+    "Tuned for FOOD & DRINK imagery. Rename brand_name/campaign and adjust the palette once, then leave it alone.",
+    "'look'      -> applies to EVERY use case (colour grade, materials, mood).",
+    "'studio'    -> applies only to the use cases listed in 'studio_use_cases' (clean, controlled setups).",
+    "               Styled food shots (food-hero, flat-lay) keep their own scene/lighting from the recipe,",
+    "               so a styled tabletop never inherits a seamless studio backdrop.",
+    "Resolution order per prompt line: request-sheet column -> brand lock -> recipe default.",
+    "Empty strings are skipped, so delete whatever you do not want.",
+    "Food-specific rule: tasteful props ARE wanted (appetite appeal), unlike hard-goods catalogues -",
+    "the avoid list targets clutter and fake-looking food instead of props in general."
+  ],
+  "brand_name": "Food4Thought",
+  "campaign": "Menu photo refresh 2026 (62 items)",
+  "look": {
+    "palette": "fresh natural colours, plenty of green and red accents on white crockery, light wood and white surfaces",
+    "materials": "real food texture: crumb and crust, glossy sauce, fresh herbs, natural moisture",
+    "mood": "honest, fresh, home-kitchen made - appetizing without looking staged"
+  },
+  "studio_use_cases": [
+    "product-mockup",
+    "packaging-shot",
+    "background-extraction",
+    "sketch-to-render"
+  ],
+  "studio": {
+    "scene": "white or light-wood table, plain neutral background, no props other than the plate and its sides",
+    "style": "natural daylight food photography, honest portions, served-as-is plating",
+    "lighting": "soft daylight from the side-left with gentle fill, natural shadows, no harsh specular highlights",
+    "framing": "plate centred and fully inside frame, camera at 35-45 degrees or slightly overhead, plate fills about 75% of the frame"
+  },
+  "global_constraints": [
+    "photographic realism with one consistent light direction",
+    "the dish exactly as the kitchen serves it: same ingredients, same portion, same plating",
+    "colour, shape and proportions true to the reference image"
+  ],
+  "global_avoid": [
+    "watermark or caption bar",
+    "ingredients that are not in the dish description",
+    "misspelled, invented or unapproved text or claims",
+    "unapproved health, nutrition or certification claims",
+    "wilted, plastic-looking or fake food",
+    "HDR look, heavy vignette or oversaturated colour"
+  ],
+  "output_defaults": {
+    "format": "jpeg",
+    "quality": 92,
+    "delivery_px": 2048,
+    "aspect": "1:1",
+    "png_use_cases": [
+      "logo-brand",
+      "infographic-diagram",
+      "ui-mockup",
+      "text-localization",
+      "background-extraction"
+    ]
+  }
+}

@@ -1,0 +1,43 @@
+name: validate
+
+# Guards the pipeline for the whole team: any push/PR that breaks templates,
+# prompts or round mechanics fails here instead of failing inside a real round.
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: python + image engine
+        run: |
+          python3 -V
+          # GitHub runners (like a bare Arena session) may have no image engine at all,
+          # so install the same fallback we tell teammates to use.
+          python3 -m pip install --quiet --upgrade pip
+          python3 -m pip install --quiet Pillow
+          python3 -c "import PIL; print('Pillow', PIL.__version__)"
+          (convert -version || magick -version || echo "no imagemagick - Pillow path in use") | head -2
+
+      - name: environment readiness
+        run: python3 tools/igp.py doctor
+
+      - name: template validation
+        run: python3 tools/check_templates.py
+
+      - name: pipeline smoke test (synthetic images, no generation slots)
+        run: bash tools/smoke_test.sh
+
+      - name: docs sanity (Thai + English entry points exist and are linked)
+        run: |
+          test -f docs/QUICKSTART-TH.md || { echo "missing Thai quickstart"; exit 1; }
+          test -f docs/TEAM-ONBOARDING.md || { echo "missing team onboarding"; exit 1; }
+          grep -q "QUICKSTART-TH.md" README.md || { echo "README does not link the Thai quickstart"; exit 1; }
+          grep -q "TEAM-ONBOARDING.md" README.md || { echo "README does not link onboarding"; exit 1; }
+          grep -q "OPENAI_API_KEY" skills/arena-imagegen/NOTICE.md || { echo "NOTICE lost the no-API rule"; exit 1; }
